@@ -61,6 +61,16 @@ ENRICHED_FIELDS = (
     "item_total_count",
     "total_sale_amount",
 )
+REQUIRED_BASIC_FIELDS = (
+    "basic_fetched_at",
+    "preview_cover_url",
+    "start_time",
+    "pre_start_time",
+    "lottery_count",
+    "item_total_count",
+    "total_book_cnt",
+    "total_buy_cnt",
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -249,6 +259,18 @@ def int_or_none(value: Any) -> int | None:
         return None
 
 
+def sum_int_field(records: list[dict[str, Any]], field: str) -> int | None:
+    total = 0
+    found = False
+    for record in records:
+        value = int_or_none(record.get(field))
+        if value is None:
+            continue
+        total += value
+        found = True
+    return total if found else None
+
+
 def bool_or_none(value: Any) -> bool | None:
     if value is None:
         return None
@@ -281,8 +303,8 @@ def basic_fields(basic: dict[str, Any], now_iso: str, sale_price: Any) -> dict[s
     lottery_list = basic.get("lottery_list")
     lotteries = [item for item in lottery_list if isinstance(item, dict)] if isinstance(lottery_list, list) else []
     lottery_prices = [lottery.get("price") for lottery in lotteries if lottery.get("price") is not None]
-    item_total_count = sum(int(lottery.get("item_total_cnt") or 0) for lottery in lotteries)
-    total_sale_amount = sum(int(lottery.get("total_sale_amount") or 0) for lottery in lotteries)
+    item_total_count = sum_int_field(lotteries, "item_total_cnt")
+    total_sale_amount = sum_int_field(lotteries, "total_sale_amount")
     share_info = basic.get("share_info") if isinstance(basic.get("share_info"), dict) else {}
 
     return {
@@ -316,14 +338,14 @@ def basic_fields(basic: dict[str, Any], now_iso: str, sale_price: Any) -> dict[s
             }
         ),
         "lottery_prices": lottery_prices,
-        "item_total_count": item_total_count or None,
-        "total_sale_amount": total_sale_amount or None,
+        "item_total_count": item_total_count,
+        "total_sale_amount": total_sale_amount,
         "price_label": lottery_price_label(lottery_prices, sale_price),
     }
 
 
 def needs_basic_info(record: dict[str, Any]) -> bool:
-    return not record.get("basic_fetched_at") or not record.get("start_time")
+    return any(field not in record or record.get(field) in {None, ""} for field in REQUIRED_BASIC_FIELDS)
 
 
 def enrich_missing_basic_info(
@@ -347,10 +369,10 @@ def enrich_missing_basic_info(
             record = by_id[act_id]
             try:
                 basic = future.result()
+                record.update(basic_fields(basic, now_iso, record.get("sale_price")))
             except Exception as exc:
                 record["basic_error"] = f"{exc.__class__.__name__}: {exc}"
                 continue
-            record.update(basic_fields(basic, now_iso, record.get("sale_price")))
 
     return records
 

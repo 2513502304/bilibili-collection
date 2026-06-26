@@ -4,9 +4,9 @@ import asyncio
 import base64
 import datetime as dt
 import html
-import io
-from pathlib import Path
+import tempfile
 from collections.abc import Callable, Iterable
+from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import unquote, urlparse, urlunparse
@@ -30,6 +30,9 @@ DEFAULT_PAGE_SIZE = 24
 DETAIL_CONCURRENCY = 8
 MEDIA_CONCURRENCY = 24
 DETAIL_PROGRESS_WEIGHT = 0.35
+MEDIA_CHUNK_SIZE = 1024 * 1024
+PREVIEW_MAX_BYTES = 2 * 1024 * 1024
+ZIP_SPOOL_MAX_SIZE = 32 * 1024 * 1024
 TRUSTED_MEDIA_HOST_SUFFIXES = ("hdslb.com", "bilibili.com", "bilivideo.com", "bilivideo.cn")
 SELECTED_IDS_KEY = "selected_collection_ids"
 ARCHIVE_BYTES_KEY = "archive_bytes"
@@ -290,11 +293,18 @@ def collection_frame(collections: list[dict[str, Any]]) -> pd.DataFrame:
         "display_title",
         "product_introduce",
         "start_time",
+        "lottery_names",
     ]:
         if column not in frame:
             frame[column] = ""
 
+    def search_value(value: Any) -> str:
+        if isinstance(value, list):
+            return " ".join(str(item) for item in value)
+        return str(value)
+
     frame["id"] = pd.to_numeric(frame["id"], errors="coerce").astype("Int64")
+    frame["sale_time_label"] = frame["start_time"].apply(format_unix_shanghai)
     text_parts = [
         frame["id"].astype(str),
         frame["name"].fillna("").astype(str),
@@ -304,6 +314,8 @@ def collection_frame(collections: list[dict[str, Any]]) -> pd.DataFrame:
         frame["display_title"].fillna("").astype(str),
         frame["product_introduce"].fillna("").astype(str),
         frame["start_time"].fillna("").astype(str),
+        frame["sale_time_label"].fillna("").astype(str),
+        frame["lottery_names"].apply(search_value),
     ]
     frame["_search_text"] = text_parts[0]
     for part in text_parts[1:]:
@@ -480,7 +492,10 @@ def preview_data_uri(url: str) -> str | None:
     try:
         with urlopen(request, timeout=20.0) as response:
             content_type = response.headers.get_content_type() or mime_from_url(safe_url)
-            encoded = base64.b64encode(response.read()).decode("ascii")
+            content = response.read(PREVIEW_MAX_BYTES + 1)
+            if len(content) > PREVIEW_MAX_BYTES:
+                return None
+            encoded = base64.b64encode(content).decode("ascii")
             return f"data:{content_type};base64,{encoded}"
     except (HTTPError, URLError, TimeoutError):
         return None
@@ -610,17 +625,38 @@ def media_job_path(
     return f"bilibili-collection/{root}/{collection_dir}/{category}/{safe_name}{ext}"
 
 
+def unique_archive_path(path: str, seen_paths: dict[str, int]) -> str:
+    count = seen_paths.get(path, 0) + 1
+    seen_paths[path] = count
+    if count == 1:
+        return path
+
+    parsed = Path(path)
+    return str(parsed.with_name(f"{parsed.stem}__{count}{parsed.suffix}"))
+
+
+def media_job(
+    collection: dict[str, Any],
+    category: str,
+    name: str,
+    url: str,
+    kind: str,
+    seen_paths: dict[str, int],
+) -> tuple[str, str, str]:
+    path = media_job_path(collection, category, name, url, kind)
+    return unique_archive_path(path, seen_paths), url, name
+
+
 def iter_media_jobs(
     collection: dict[str, Any],
     detail: dict[str, Any],
 ) -> Iterable[tuple[str, str, str]]:
+    seen_paths: dict[str, int] = {}
     cover_url = str(detail.get("act_y_img") or collection.get("cover_url") or "")
     safe_cover_url = trusted_media_url(cover_url)
     if safe_cover_url:
-        yield (
-            media_job_path(collection, "cover", str(collection["name"]), safe_cover_url, "image"),
-            safe_cover_url,
-            "封面图",
+        yield media_job(
+            collection, "cover", str(collection["name"]), safe_cover_url, "image", seen_paths
         )
 
     for item in detail.get("item_list", []) or []:
@@ -633,47 +669,63 @@ def iter_media_jobs(
         card_name = str(card_item.get("card_name") or card_item.get("card_type_id") or "collection")
         img_url = trusted_media_url(str(card_item.get("card_img") or ""))
         if img_url:
-            yield media_job_path(collection, "collection", card_name, img_url, "image"), img_url, card_name
+            yield media_job(collection, "collection", card_name, img_url, "image", seen_paths)
 
         video_list = card_item.get("video_list")
         if isinstance(video_list, list) and video_list:
             video_url = trusted_media_url(str(video_list[-1]))
             if video_url:
-                yield media_job_path(collection, "collection", card_name, video_url, "video"), video_url, card_name
+                yield media_job(collection, "collection", card_name, video_url, "video", seen_paths)
 
     for collect in detail.get("collect_list", []) or []:
         if not isinstance(collect, dict) or int(collect.get("redeem_item_type") or 0) != 1:
             continue
-        card_item = (
-            collect.get("card_item", {})
-            .get("card_asset_info", {})
-            .get("card_item", {})
-        )
+        collect_card_item = collect.get("card_item")
+        if not isinstance(collect_card_item, dict):
+            continue
+        card_asset_info = collect_card_item.get("card_asset_info")
+        if not isinstance(card_asset_info, dict):
+            continue
+        card_item = card_asset_info.get("card_item")
         if not isinstance(card_item, dict):
             continue
 
         card_name = str(card_item.get("card_name") or collect.get("redeem_item_name") or "curation")
         img_url = trusted_media_url(str(card_item.get("card_img") or ""))
         if img_url:
-            yield media_job_path(collection, "curation", card_name, img_url, "image"), img_url, card_name
+            yield media_job(collection, "curation", card_name, img_url, "image", seen_paths)
 
         video_list = card_item.get("video_list")
         if isinstance(video_list, list) and video_list:
             video_url = trusted_media_url(str(video_list[-1]))
             if video_url:
-                yield media_job_path(collection, "curation", card_name, video_url, "video"), video_url, card_name
+                yield media_job(collection, "curation", card_name, video_url, "video", seen_paths)
 
 
-async def fetch_media_bytes(
-    client: Booru,
+def download_media_to_file(media_url: str, target_path: Path) -> None:
+    request = Request(
+        media_url,
+        headers={
+            "Accept": "*/*",
+            "Referer": REFERER,
+            "User-Agent": "Mozilla/5.0 BilibiliCollectionDownloader/1.0",
+        },
+    )
+    with urlopen(request, timeout=60.0 * 5) as response, target_path.open("wb") as file:
+        while chunk := response.read(MEDIA_CHUNK_SIZE):
+            file.write(chunk)
+
+
+async def fetch_media_file(
     media_path: str,
     media_url: str,
     media_name: str,
+    target_path: Path,
     semaphore: asyncio.Semaphore,
-) -> tuple[str, bytes, str]:
+) -> tuple[str, Path, str]:
     async with semaphore:
-        response = await client.get(media_url, referer=REFERER)
-    return media_path, response.content, media_name
+        await asyncio.to_thread(download_media_to_file, media_url, target_path)
+    return media_path, target_path, media_name
 
 
 ProgressCallback = Callable[[float, str, str | None], None]
@@ -684,7 +736,6 @@ async def build_zip_async(
     progress_callback: ProgressCallback | None = None,
 ) -> tuple[bytes, dict[str, Any]]:
     client = make_booru_client()
-    buffer = io.BytesIO()
     details: list[tuple[dict[str, Any], dict[str, Any]]] = []
     failures: list[str] = []
     succeeded_media = 0
@@ -725,8 +776,12 @@ async def build_zip_async(
                 progress_callback(1.0, "生成失败", "未能获取任何收藏集明细")
             raise RuntimeError("未能获取任何收藏集明细，无法生成压缩包。")
 
-        media_jobs: list[tuple[str, str, str]] = []
-        with ZipFile(buffer, "w", compression=ZIP_DEFLATED) as archive:
+        with (
+            tempfile.TemporaryDirectory(prefix="bilibili-collection-media-") as temp_dir,
+            tempfile.SpooledTemporaryFile(max_size=ZIP_SPOOL_MAX_SIZE) as buffer,
+            ZipFile(buffer, "w", compression=ZIP_DEFLATED) as archive,
+        ):
+            media_jobs: list[tuple[str, str, str]] = []
             for collection, detail in details:
                 json_path = (
                     f"bilibili-collection/jsons/"
@@ -741,21 +796,30 @@ async def build_zip_async(
             if not media_jobs:
                 if progress_callback:
                     progress_callback(1.0, "没有可下载媒体，已写入元数据", None)
-                return buffer.getvalue(), {
+                archive.close()
+                buffer.seek(0)
+                return buffer.read(), {
                     "collections": len(details),
                     "media": 0,
                     "failures": failures,
                 }
 
+            temp_root = Path(temp_dir)
             media_tasks = [
                 asyncio.create_task(
-                    fetch_media_bytes(client, media_path, media_url, media_name, media_semaphore)
+                    fetch_media_file(
+                        media_path,
+                        media_url,
+                        media_name,
+                        temp_root / f"media_{index}",
+                        media_semaphore,
+                    )
                 )
-                for media_path, media_url, media_name in media_jobs
+                for index, (media_path, media_url, media_name) in enumerate(media_jobs)
             ]
             for completed_index, task in enumerate(asyncio.as_completed(media_tasks), start=1):
                 try:
-                    media_path, content, media_name = await task
+                    media_path, temp_path, media_name = await task
                 except Exception as exc:
                     message = f"媒体下载失败: {exc.__class__.__name__}: {exc}"
                     failures.append(message)
@@ -768,7 +832,8 @@ async def build_zip_async(
                         )
                     continue
 
-                archive.writestr(media_path, content)
+                archive.write(temp_path, media_path)
+                temp_path.unlink(missing_ok=True)
                 succeeded_media += 1
                 if progress_callback:
                     progress_callback(
@@ -778,7 +843,11 @@ async def build_zip_async(
                         None,
                     )
 
-        return buffer.getvalue(), {
+            archive.close()
+            buffer.seek(0)
+            archive_bytes = buffer.read()
+
+        return archive_bytes, {
             "collections": len(details),
             "media": succeeded_media,
             "failures": failures,
