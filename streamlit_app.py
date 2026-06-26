@@ -4,15 +4,15 @@ import asyncio
 import base64
 import datetime as dt
 import html
+import logging
 import tempfile
 from collections.abc import Callable, Iterable
 from pathlib import Path
 from typing import Any
-from urllib.error import HTTPError, URLError
 from urllib.parse import unquote, urlparse, urlunparse
-from urllib.request import Request, urlopen
 from zipfile import ZIP_DEFLATED, ZipFile
 
+import aiofiles
 import orjson
 import pandas as pd
 import streamlit as st
@@ -27,10 +27,8 @@ REFERER = "https://www.bilibili.com"
 APP_TIMEZONE = dt.timezone(dt.timedelta(hours=8), "UTC+8")
 PAGE_SIZE_OPTIONS = [12, 24, 48, 96]
 DEFAULT_PAGE_SIZE = 24
-DETAIL_CONCURRENCY = 8
 MEDIA_CONCURRENCY = 24
 DETAIL_PROGRESS_WEIGHT = 0.35
-MEDIA_CHUNK_SIZE = 1024 * 1024
 PREVIEW_MAX_BYTES = 2 * 1024 * 1024
 ZIP_SPOOL_MAX_SIZE = 32 * 1024 * 1024
 TRUSTED_MEDIA_HOST_SUFFIXES = ("hdslb.com", "bilibili.com", "bilivideo.com", "bilivideo.cn")
@@ -39,7 +37,6 @@ ARCHIVE_BYTES_KEY = "archive_bytes"
 ARCHIVE_NAME_KEY = "archive_name"
 ARCHIVE_SELECTION_KEY = "archive_selection"
 ARCHIVE_REPORT_KEY = "archive_report"
-ARCHIVE_LOGS_KEY = "archive_logs"
 BATCH_SELECT_KEY = "batch_select_ids"
 PAGE_KEY = "result_page"
 PENDING_PAGE_KEY = "pending_result_page"
@@ -338,7 +335,6 @@ def collection_frame(collections: list[dict[str, Any]]) -> pd.DataFrame:
 def init_state() -> None:
     st.session_state.setdefault(SELECTED_IDS_KEY, set())
     st.session_state.setdefault(PAGE_KEY, 1)
-    st.session_state.setdefault(ARCHIVE_LOGS_KEY, [])
 
 
 def selected_ids() -> set[int]:
@@ -347,6 +343,18 @@ def selected_ids() -> set[int]:
         current_ids = set(current_ids)
         st.session_state[SELECTED_IDS_KEY] = current_ids
     return current_ids
+
+
+def prune_selected_ids(valid_ids: set[int]) -> None:
+    current_ids = selected_ids()
+    stale_ids = current_ids - valid_ids
+    if not stale_ids:
+        return
+
+    current_ids.difference_update(stale_ids)
+    for collection_id in stale_ids:
+        st.session_state.pop(checkbox_key(collection_id), None)
+    invalidate_archive()
 
 
 def selection_signature() -> tuple[int, ...]:
@@ -492,25 +500,30 @@ def preview_data_uri(url: str) -> str | None:
     if safe_url is None:
         return None
 
-    request = Request(
-        safe_url,
-        headers={
-            "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
-            "Referer": REFERER,
-            "User-Agent": "Mozilla/5.0 BilibiliCollectionDownloader/1.0",
-        },
-    )
+    return asyncio.run(fetch_preview_data_uri(safe_url))
+
+
+async def fetch_preview_data_uri(safe_url: str) -> str | None:
+    client = make_booru_client(timeout=20.0, pool_size=4)
     try:
-        with urlopen(request, timeout=20.0) as response:
-            raw_content_type = response.headers.get("Content-Type")
-            content_type = response.headers.get_content_type() if raw_content_type else mime_from_url(safe_url)
-            content = response.read(PREVIEW_MAX_BYTES + 1)
-            if len(content) > PREVIEW_MAX_BYTES:
-                return None
-            encoded = base64.b64encode(content).decode("ascii")
-            return f"data:{content_type};base64,{encoded}"
-    except (HTTPError, URLError, TimeoutError):
+        response = await client.get(
+            safe_url,
+            headers={"Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8"},
+            referer=REFERER,
+        )
+        raw_content_type = response.headers.get("Content-Type")
+        content_type = response.headers.get_content_type() if raw_content_type else mime_from_url(safe_url)
+        if not content_type.startswith("image/"):
+            return None
+        content = response.content
+        if len(content) > PREVIEW_MAX_BYTES:
+            return None
+        encoded = base64.b64encode(content).decode("ascii")
+        return f"data:{content_type};base64,{encoded}"
+    except Exception:
         return None
+    finally:
+        await client.client.close()
 
 
 def render_header(index: dict[str, Any], collections: list[dict[str, Any]]) -> None:
@@ -576,31 +589,30 @@ def render_collection_card(collection: dict[str, Any], selected_ids: set[int]) -
     )
 
 
-def make_booru_client() -> Booru:
+def make_booru_client(timeout: float = 60.0 * 5, pool_size: int = MEDIA_CONCURRENCY) -> Booru:
     return Booru(
-        logger_level=40,
+        logger_level=logging.ERROR,
         base_url=REFERER,
-        multiplexed=False,
         proxies=None,
         trust_env=False,
         max_attempt_number=3,
         retries=3,
         rate_limit=None,
-        timeout=60.0 * 5,
+        timeout=timeout,
+        pool_connections=pool_size,
+        pool_maxsize=pool_size,
     )
 
 
 async def fetch_collection_detail(
     client: Booru,
     collection: dict[str, Any],
-    semaphore: asyncio.Semaphore,
 ) -> dict[str, Any]:
-    async with semaphore:
-        response = await client.get(
-            DETAIL_API,
-            params={"act_id": int(collection["id"])},
-            referer=REFERER,
-        )
+    response = await client.get(
+        DETAIL_API,
+        params={"act_id": int(collection["id"])},
+        referer=REFERER,
+    )
 
     payload = response.json()
     if payload.get("code") != 0:
@@ -617,9 +629,8 @@ async def fetch_collection_detail(
 async def fetch_collection_detail_job(
     client: Booru,
     collection: dict[str, Any],
-    semaphore: asyncio.Semaphore,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
-    return collection, await fetch_collection_detail(client, collection, semaphore)
+    return collection, await fetch_collection_detail(client, collection)
 
 
 def media_job_path(
@@ -717,33 +728,31 @@ def iter_media_jobs(
                 yield media_job(collection, "curation", card_name, video_url, "video", seen_paths)
 
 
-def download_media_to_file(media_url: str, target_path: Path) -> None:
+async def download_media_to_file(client: Booru, media_url: str, target_path: Path) -> None:
     safe_media_url = trusted_media_url(media_url)
     if safe_media_url is None:
         raise ValueError("Untrusted media URL")
 
-    request = Request(
+    response = await client.get(
         safe_media_url,
         headers={
             "Accept": "*/*",
-            "Referer": REFERER,
             "User-Agent": "Mozilla/5.0 BilibiliCollectionDownloader/1.0",
         },
+        referer=REFERER,
     )
-    with urlopen(request, timeout=60.0 * 5) as response, target_path.open("wb") as file:
-        while chunk := response.read(MEDIA_CHUNK_SIZE):
-            file.write(chunk)
+    async with aiofiles.open(target_path, "wb") as file:
+        await file.write(response.content)
 
 
 async def fetch_media_file(
+    client: Booru,
     media_path: str,
     media_url: str,
     media_name: str,
     target_path: Path,
-    semaphore: asyncio.Semaphore,
 ) -> tuple[str, Path, str]:
-    async with semaphore:
-        await asyncio.to_thread(download_media_to_file, media_url, target_path)
+    await download_media_to_file(client, media_url, target_path)
     return media_path, target_path, media_name
 
 
@@ -758,15 +767,13 @@ async def build_zip_async(
     details: list[tuple[dict[str, Any], dict[str, Any]]] = []
     failures: list[str] = []
     succeeded_media = 0
-    detail_semaphore = asyncio.Semaphore(DETAIL_CONCURRENCY)
-    media_semaphore = asyncio.Semaphore(MEDIA_CONCURRENCY)
 
     try:
         if progress_callback:
             progress_callback(0.0, "准备获取收藏集明细", None)
 
         detail_tasks = [
-            asyncio.create_task(fetch_collection_detail_job(client, collection, detail_semaphore))
+            asyncio.create_task(fetch_collection_detail_job(client, collection))
             for collection in selected_collections
         ]
         for completed_index, task in enumerate(asyncio.as_completed(detail_tasks), start=1):
@@ -827,11 +834,11 @@ async def build_zip_async(
             media_tasks = [
                 asyncio.create_task(
                     fetch_media_file(
+                        client,
                         media_path,
                         media_url,
                         media_name,
                         temp_root / f"media_{index}",
-                        media_semaphore,
                     )
                 )
                 for index, (media_path, media_url, media_name) in enumerate(media_jobs)
@@ -898,8 +905,13 @@ def sync_filtered_multiselect(
     filtered: list[dict[str, Any]],
     collections_by_id: dict[int, dict[str, Any]],
 ) -> None:
-    option_ids = [int(collection["id"]) for collection in filtered]
+    filtered_ids = [int(collection["id"]) for collection in filtered]
     current_ids = selected_ids()
+    option_ids = [
+        collection_id
+        for collection_id in dict.fromkeys(filtered_ids + sorted(current_ids))
+        if collection_id in collections_by_id
+    ]
     st.session_state[BATCH_SELECT_KEY] = [
         collection_id for collection_id in option_ids if collection_id in current_ids
     ]
@@ -921,7 +933,7 @@ def render_page_select_all(page_items: list[dict[str, Any]], page: int) -> None:
         return
 
     page_ids = [int(collection["id"]) for collection in page_items]
-    key = f"select_page_{page}_{'-'.join(map(str, page_ids[:3]))}_{len(page_ids)}"
+    key = f"select_page_{page}_{len(page_ids)}_{page_ids[0]}_{page_ids[-1]}"
     all_selected = all(collection_id in selected_ids() for collection_id in page_ids)
     st.session_state[key] = all_selected
     st.checkbox(
@@ -964,117 +976,132 @@ def archive_ready_for_current_selection() -> bool:
     )
 
 
-def render_archive_report() -> None:
-    report = st.session_state.get(ARCHIVE_REPORT_KEY)
-    if not isinstance(report, dict):
+def render_archive_report(report: dict[str, Any] | None, archive_ready: bool) -> None:
+    if not report:
         return
 
     failures = report.get("failures") or []
-    st.markdown(
-        f"""
-        <div class="selection-line">
-        已写入 {int(report.get("collections") or 0):,} 个收藏集 metadata，
-        {int(report.get("media") or 0):,} 个媒体文件。
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    if archive_ready:
+        summary = (
+            f"已生成 {int(report.get('collections') or 0):,} 个收藏集 metadata、"
+            f"{int(report.get('media') or 0):,} 个媒体文件"
+        )
+    else:
+        summary = "压缩包未生成"
     if failures:
-        with st.expander(f"查看 {len(failures)} 条失败日志", icon=":material/warning:"):
-            for failure in failures:
-                st.code(str(failure), language="text")
+        summary += f"，{len(failures):,} 条失败记录"
+    summary += "。"
 
-
-def render_persistent_logs() -> None:
-    logs = st.session_state.get(ARCHIVE_LOGS_KEY) or []
-    if not logs:
-        return
-
-    with st.expander("查看最近一次生成日志", icon=":material/subject:"):
-        for log in logs[-120:]:
-            st.code(str(log), language="text")
+    st.caption(summary)
+    logs = list(report.get("logs", []))
+    if logs or failures:
+        with st.expander("生成日志", expanded=False, icon=":material/receipt_long:"):
+            if logs:
+                st.code("\n".join(str(log) for log in logs[-160:]), language="text")
+            if failures:
+                st.error("\n".join(str(failure) for failure in failures), icon=":material/error:")
 
 
 def render_download_panel(collections: list[dict[str, Any]]) -> None:
-    picked = selected_collections(collections)
-    selected_count = len(picked)
-    ready = archive_ready_for_current_selection()
+    current_selection = selected_collections(collections)
+    selected_count = len(current_selection)
+    current_signature = selection_signature()
+    if st.session_state.get(ARCHIVE_SELECTION_KEY) != current_signature:
+        invalidate_archive()
+    archive_ready = archive_ready_for_current_selection()
 
-    st.markdown('<div class="section-heading">:material/download: 下载</div>', unsafe_allow_html=True)
-    left_col, right_col = st.columns([1, 1], vertical_alignment="bottom")
-    with left_col:
-        st.markdown(
-            f"""
-            <div class="selection-title">已选择 {selected_count:,} 个收藏集</div>
-            <div class="selection-line">生成压缩包后，保存按钮才会可用；选择变化会让已生成的压缩包失效。</div>
-            """,
-            unsafe_allow_html=True,
+    with st.container(border=True):
+        summary_col, prepare_col, save_col = st.columns(
+            [3.2, 1.05, 1.05],
+            vertical_alignment="center",
         )
-    with right_col:
-        if selected_count == 0:
-            st.button(
+        with summary_col:
+            st.markdown(
+                f"<div class='selection-title'>已选择 {selected_count:,} 个收藏集</div>",
+                unsafe_allow_html=True,
+            )
+            if selected_count:
+                names = "、".join(str(collection["name"]) for collection in current_selection[:6])
+                if selected_count > 6:
+                    names += f" 等 {selected_count} 个"
+                st.markdown(
+                    f"<div class='selection-line'>{html.escape(names)}</div>",
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.markdown(
+                    "<div class='selection-line'>从搜索结果或全量索引中勾选收藏集后即可生成压缩包。</div>",
+                    unsafe_allow_html=True,
+                )
+            st.caption("点击“生成压缩包”后才会开始服务端下载和打包。")
+            report = st.session_state.get(ARCHIVE_REPORT_KEY)
+            render_archive_report(report, archive_ready)
+
+        with prepare_col:
+            prepare = st.button(
                 "生成压缩包",
                 icon=":material/archive:",
-                disabled=True,
                 help=PREPARE_ARCHIVE_HELP,
+                disabled=selected_count == 0,
                 width="stretch",
             )
-        else:
-            if st.button(
-                "生成压缩包",
-                icon=":material/archive:",
-                help=PREPARE_ARCHIVE_HELP,
+
+        with save_col:
+            st.download_button(
+                "保存压缩包",
+                data=st.session_state.get(ARCHIVE_BYTES_KEY, b""),
+                file_name=st.session_state.get(ARCHIVE_NAME_KEY, "bilibili-collection.zip"),
+                mime="application/zip",
+                icon=":material/download:",
+                help=SAVE_ARCHIVE_HELP,
+                disabled=not archive_ready,
                 width="stretch",
-            ):
-                progress = st.progress(0.0, text="准备生成压缩包")
-                logs: list[str] = []
-                st.session_state[ARCHIVE_LOGS_KEY] = logs
+            )
 
-                def report_progress(value: float, text: str, log: str | None) -> None:
-                    progress.progress(min(max(value, 0.0), 1.0), text=text)
-                    if log:
-                        logs.append(log)
-                        st.session_state[ARCHIVE_LOGS_KEY] = logs
+    if prepare and current_selection:
+        log_lines: list[str] = []
+        with st.status("正在生成压缩包", expanded=False, type="compact") as status:
+            progress_bar = st.progress(0, text="准备开始")
+            log_placeholder = st.empty()
 
-                try:
-                    archive_bytes, report = build_zip(picked, report_progress)
-                except RuntimeError as exc:
-                    progress.progress(1.0, text="生成失败")
-                    st.error(str(exc), icon=":material/error:")
-                else:
-                    timestamp = dt.datetime.now(APP_TIMEZONE).strftime("%Y%m%d-%H%M%S")
-                    st.session_state[ARCHIVE_BYTES_KEY] = archive_bytes
-                    st.session_state[ARCHIVE_NAME_KEY] = f"bilibili-collection-{timestamp}.zip"
-                    st.session_state[ARCHIVE_SELECTION_KEY] = selection_signature()
-                    st.session_state[ARCHIVE_REPORT_KEY] = report
-                    progress.progress(1.0, text="压缩包已生成")
-                    st.toast("压缩包已生成，可以保存。", icon=":material/check_circle:")
-                    ready = True
+            def report_progress(value: float, text: str, log: str | None) -> None:
+                progress_bar.progress(min(max(value, 0.0), 1.0), text=text)
+                if log:
+                    log_lines.append(log)
+                    log_placeholder.code("\n".join(log_lines[-24:]), language="text")
 
-    if not ready:
-        st.download_button(
-            "保存压缩包",
-            data=b"",
-            file_name="bilibili-collection.zip",
-            mime="application/zip",
-            disabled=True,
-            icon=":material/save:",
-            help=SAVE_ARCHIVE_HELP,
-            width="stretch",
-        )
-    else:
-        st.download_button(
-            "保存压缩包",
-            data=st.session_state[ARCHIVE_BYTES_KEY],
-            file_name=st.session_state.get(ARCHIVE_NAME_KEY, "bilibili-collection.zip"),
-            mime="application/zip",
-            icon=":material/save:",
-            help=SAVE_ARCHIVE_HELP,
-            width="stretch",
-        )
-
-    render_archive_report()
-    render_persistent_logs()
+            try:
+                archive_bytes, report = build_zip(current_selection, report_progress)
+            except RuntimeError as exc:
+                st.session_state[ARCHIVE_SELECTION_KEY] = current_signature
+                st.session_state[ARCHIVE_REPORT_KEY] = {
+                    "collections": 0,
+                    "media": 0,
+                    "failures": [str(exc)],
+                    "logs": log_lines.copy(),
+                }
+                status.update(label="生成失败", state="error")
+                st.error(str(exc), icon=":material/error:")
+            except Exception as exc:
+                st.session_state[ARCHIVE_SELECTION_KEY] = current_signature
+                st.session_state[ARCHIVE_REPORT_KEY] = {
+                    "collections": 0,
+                    "media": 0,
+                    "failures": [f"{exc.__class__.__name__}: {exc}"],
+                    "logs": log_lines.copy(),
+                }
+                status.update(label="生成失败", state="error")
+                st.error(f"{exc.__class__.__name__}: {exc}", icon=":material/error:")
+            else:
+                timestamp = dt.datetime.now(APP_TIMEZONE).strftime("%Y%m%d-%H%M%S")
+                st.session_state[ARCHIVE_BYTES_KEY] = archive_bytes
+                st.session_state[ARCHIVE_NAME_KEY] = f"bilibili-collection-{timestamp}.zip"
+                st.session_state[ARCHIVE_SELECTION_KEY] = current_signature
+                report["logs"] = log_lines.copy()
+                st.session_state[ARCHIVE_REPORT_KEY] = report
+                progress_bar.progress(1.0, text="压缩包已生成")
+                status.update(label="压缩包已生成", state="complete")
+                st.rerun()
 
 
 def render_grid(page_items: list[dict[str, Any]]) -> None:
@@ -1099,51 +1126,63 @@ def main() -> None:
     collections = list(index["collections"])
     frame = collection_frame(collections)
     collections_by_id = collection_by_id(collections)
+    prune_selected_ids(set(collections_by_id))
 
     render_header(index, collections)
 
-    top_cols = st.columns([2.6, 1, 1], vertical_alignment="bottom")
-    with top_cols[0]:
-        query = st.text_input(
-            "搜索收藏集",
-            placeholder="输入 ID、名称、状态或描述",
-            help=SEARCH_HELP,
-        )
-    with top_cols[1]:
-        page_size = st.selectbox(
-            "每页数量",
-            PAGE_SIZE_OPTIONS,
-            index=PAGE_SIZE_OPTIONS.index(DEFAULT_PAGE_SIZE),
-            help=PAGE_SIZE_HELP,
-        )
-    with top_cols[2]:
-        if st.button("清空选择", icon=":material/delete:", disabled=len(selected_ids()) == 0, width="stretch"):
-            for collection_id in list(selected_ids()):
-                st.session_state[checkbox_key(collection_id)] = False
-            selected_ids().clear()
-            invalidate_archive()
-            st.rerun()
+    st.markdown("<div class='section-heading'>筛选与选择</div>", unsafe_allow_html=True)
+    with st.container(border=True):
+        search_col, size_col, clear_col = st.columns([3.2, 1, 1], vertical_alignment="bottom")
+        with search_col:
+            query = st.text_input(
+                "搜索收藏集",
+                placeholder="输入 ID、名称、状态或描述",
+                help=SEARCH_HELP,
+            )
+        with size_col:
+            page_size = st.selectbox(
+                "每页数量",
+                PAGE_SIZE_OPTIONS,
+                index=PAGE_SIZE_OPTIONS.index(DEFAULT_PAGE_SIZE),
+                help=PAGE_SIZE_HELP,
+            )
+        with clear_col:
+            if st.button("清空选择", icon=":material/delete:", disabled=len(selected_ids()) == 0, width="stretch"):
+                for collection_id in list(selected_ids()):
+                    st.session_state[checkbox_key(collection_id)] = False
+                selected_ids().clear()
+                invalidate_archive()
+                st.rerun()
 
-    filtered = filter_collections(collections, frame, query)
-    max_page = page_count(len(filtered), page_size)
-    apply_pending_page(max_page)
-    page = int(st.session_state[PAGE_KEY])
-    start = (page - 1) * page_size
-    page_items = filtered[start : start + page_size]
+        filtered = filter_collections(collections, frame, query)
+        max_page = page_count(len(filtered), page_size)
+        if query and st.session_state.get("_last_query") != query:
+            st.session_state[PAGE_KEY] = 1
+        st.session_state["_last_query"] = query
+        apply_pending_page(max_page)
+        page = int(st.session_state[PAGE_KEY])
+        start = (page - 1) * page_size
+        page_items = filtered[start : start + page_size]
+
+        st.markdown(
+            f"<div class='toolbar-note'>当前显示 {len(filtered):,} / {len(collections):,} 个收藏集。</div>",
+            unsafe_allow_html=True,
+        )
+
+        batch_col, page_select_col = st.columns([3.4, 1], vertical_alignment="bottom")
+        with batch_col:
+            sync_filtered_multiselect(filtered, collections_by_id)
+        with page_select_col:
+            render_page_select_all(page_items, page)
+
+    st.markdown("<div class='section-heading'>下载</div>", unsafe_allow_html=True)
+    render_download_panel(collections)
 
     st.markdown(
-        f"""
-        <div class="toolbar-note">
-        当前显示 {len(page_items):,} / {len(filtered):,} 个匹配收藏集；索引共 {len(collections):,} 个。
-        </div>
-        <div id="{RESULTS_TOP_ID}" class="section-anchor"></div>
-        """,
+        f"<div id='{RESULTS_TOP_ID}' class='section-anchor'></div>"
+        "<div class='section-heading'>浏览索引</div>",
         unsafe_allow_html=True,
     )
-
-    sync_filtered_multiselect(filtered, collections_by_id)
-    render_page_select_all(page_items, page)
-    render_download_panel(collections)
     render_pagination(page, max_page, "top")
     render_grid(page_items)
     render_pagination(page, max_page, "bottom")
