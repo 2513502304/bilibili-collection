@@ -1,0 +1,14 @@
+[project]
+name = "bilibili-collection"
+version = "0.1.0"
+description = "bilibili collection downloader"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiofiles>=25.1.0",
+    "orjson>=3.11.9",
+    "pre-commit>=4.6.0",
+    "spdl>=0.5.0",
+    "streamlit>=1.58.0",
+    "waifuboard>=1.0.14",
+]
