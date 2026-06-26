@@ -86,6 +86,11 @@ uv run python main.py
 
 脚本会把结果写入当前目录下的 `./bilibili-collection/images/`、`./bilibili-collection/videos/` 和 `./bilibili-collection/jsons/`。全量下载会请求大量公开图片和视频，请根据本机网络情况预留时间和磁盘空间。
 
+## **同系列项目**
+
+- [bilibili-mall](https://github.com/2513502304/bilibili-mall)：一款用于在哔哩哔哩会员购市集内搜索优惠商品的系统。
+- [bilibili-emote](https://github.com/2513502304/bilibili-emote)：一个 Streamlit 交互式前端页面，用于下载每日更新的 Bilibili 表情包。
+
 ## **自动更新**
 
 仓库通过 GitHub Actions 每天更新一次收藏集索引和 README 中的表格。表格中的预约时间、开售时间、结束时间、预约数、已售数等信息来自 Bilibili 收藏集预览 API；每日任务只会为新增收藏集或缺失预览信息的收藏集补充调用该 API，不会重复请求已经补齐的 act_id。
