@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import asyncio
-import base64
 import datetime as dt
 import html
 import logging
@@ -29,7 +28,6 @@ PAGE_SIZE_OPTIONS = [12, 24, 48, 96]
 DEFAULT_PAGE_SIZE = 24
 MEDIA_CONCURRENCY = 24
 DETAIL_PROGRESS_WEIGHT = 0.35
-PREVIEW_MAX_BYTES = 2 * 1024 * 1024
 ZIP_SPOOL_MAX_SIZE = 32 * 1024 * 1024
 TRUSTED_MEDIA_HOST_SUFFIXES = ("hdslb.com", "bilibili.com", "bilivideo.com", "bilivideo.cn")
 SELECTED_IDS_KEY = "selected_collection_ids"
@@ -459,18 +457,6 @@ def extension_from_url(url: str, default: str = ".bin") -> str:
     return default
 
 
-def mime_from_url(url: str) -> str:
-    suffix = extension_from_url(url).lower()
-    return {
-        ".avif": "image/avif",
-        ".jpg": "image/jpeg",
-        ".jpeg": "image/jpeg",
-        ".mp4": "video/mp4",
-        ".png": "image/png",
-        ".webp": "image/webp",
-    }.get(suffix, "application/octet-stream")
-
-
 def format_unix_shanghai(value: Any) -> str:
     try:
         timestamp = int(value)
@@ -492,38 +478,6 @@ def trusted_media_url(url: str) -> str | None:
         return None
 
     return urlunparse(parsed._replace(scheme="https"))
-
-
-@st.cache_data(show_spinner=False, ttl=60 * 60 * 24)
-def preview_data_uri(url: str) -> str | None:
-    safe_url = trusted_media_url(url)
-    if safe_url is None:
-        return None
-
-    return asyncio.run(fetch_preview_data_uri(safe_url))
-
-
-async def fetch_preview_data_uri(safe_url: str) -> str | None:
-    client = make_booru_client(timeout=20.0, pool_size=4)
-    try:
-        response = await client.get(
-            safe_url,
-            headers={"Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8"},
-            referer=REFERER,
-        )
-        raw_content_type = response.headers.get("Content-Type")
-        content_type = response.headers.get_content_type() if raw_content_type else mime_from_url(safe_url)
-        if not content_type.startswith("image/"):
-            return None
-        content = response.content
-        if len(content) > PREVIEW_MAX_BYTES:
-            return None
-        encoded = base64.b64encode(content).decode("ascii")
-        return f"data:{content_type};base64,{encoded}"
-    except Exception:
-        return None
-    finally:
-        await client.client.close()
 
 
 def render_header(index: dict[str, Any], collections: list[dict[str, Any]]) -> None:
@@ -550,10 +504,9 @@ def render_collection_card(collection: dict[str, Any], selected_ids: set[int]) -
     safe_name = html.escape(str(collection["name"]))
     cover_url = str(collection.get("preview_cover_url") or collection["cover_url"])
     safe_cover_url = trusted_media_url(cover_url)
-    cover_src = preview_data_uri(cover_url) or safe_cover_url
     image_html = (
-        f'<img src="{html.escape(cover_src, quote=True)}" alt="{safe_name}" loading="lazy" referrerpolicy="no-referrer">'
-        if cover_src
+        f'<img src="{html.escape(safe_cover_url, quote=True)}" alt="{safe_name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+        if safe_cover_url
         else '<span class="collection-meta">封面加载失败</span>'
     )
     key = checkbox_key(collection_id)
