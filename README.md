@@ -14,6 +14,8 @@
 
 如果你在本机运行页面，下载和打包发生在本机；如果部署到 Streamlit 服务器，下载和打包发生在对应服务器。
 
+如果部署服务器下载 Bilibili 视频时遇到 403，通常是服务器出口 IP 被 Bilibili CDN 拒绝。应用会继承服务端的 `HTTP_PROXY` / `HTTPS_PROXY` 配置，也可以单独设置 `BILIBILI_MEDIA_PROXY` 给收藏集媒体下载使用。
+
 ## **本地运行**
 
 本项目最低需要 Python 3.10。推荐使用 `uv` 管理环境。

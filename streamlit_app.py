@@ -4,6 +4,7 @@ import asyncio
 import datetime as dt
 import html
 import logging
+import os
 import tempfile
 from collections.abc import Callable, Iterable
 from pathlib import Path
@@ -30,6 +31,7 @@ MEDIA_CONCURRENCY = 24
 DETAIL_PROGRESS_WEIGHT = 0.35
 ZIP_SPOOL_MAX_SIZE = 32 * 1024 * 1024
 TRUSTED_MEDIA_HOST_SUFFIXES = ("hdslb.com", "bilibili.com", "bilivideo.com", "bilivideo.cn")
+BILIBILI_MEDIA_PROXY_ENV = "BILIBILI_MEDIA_PROXY"
 SELECTED_IDS_KEY = "selected_collection_ids"
 ARCHIVE_BYTES_KEY = "archive_bytes"
 ARCHIVE_NAME_KEY = "archive_name"
@@ -542,12 +544,17 @@ def render_collection_card(collection: dict[str, Any], selected_ids: set[int]) -
     )
 
 
+def configured_media_proxy() -> str | None:
+    proxy = os.environ.get(BILIBILI_MEDIA_PROXY_ENV)
+    return proxy.strip() if proxy and proxy.strip() else None
+
+
 def make_booru_client(timeout: float = 60.0 * 5, pool_size: int = MEDIA_CONCURRENCY) -> Booru:
     return Booru(
         logger_level=logging.ERROR,
         base_url=REFERER,
-        proxies=None,
-        trust_env=False,
+        proxies=configured_media_proxy(),
+        trust_env=True,
         max_attempt_number=3,
         retries=3,
         rate_limit=None,
@@ -694,6 +701,15 @@ async def download_media_to_file(client: Booru, media_url: str, target_path: Pat
         },
         referer=REFERER,
     )
+    response.raise_for_status()
+    content_type = str(response.headers.get("Content-Type") or "").split(";", 1)[0].lower()
+    if content_type.startswith("text/") or content_type == "application/json":
+        raise RuntimeError(
+            f"Unexpected {content_type or 'unknown'} response while downloading media"
+        )
+    if not response.content:
+        raise RuntimeError("Empty media response")
+
     async with aiofiles.open(target_path, "wb") as file:
         await file.write(response.content)
 
