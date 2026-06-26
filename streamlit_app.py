@@ -293,18 +293,23 @@ def collection_frame(collections: list[dict[str, Any]]) -> pd.DataFrame:
         "display_title",
         "product_introduce",
         "start_time",
+        "pre_start_time",
+        "pre_end_time",
         "lottery_names",
+        "share_main_title",
+        "share_sub_title",
     ]:
         if column not in frame:
             frame[column] = ""
 
     def search_value(value: Any) -> str:
         if isinstance(value, list):
-            return " ".join(str(item) for item in value)
+            return " ".join(str(item).strip() for item in value if str(item).strip())
+        if value is None or pd.isna(value):
+            return ""
         return str(value)
 
     frame["id"] = pd.to_numeric(frame["id"], errors="coerce").astype("Int64")
-    frame["sale_time_label"] = frame["start_time"].apply(format_unix_shanghai)
     text_parts = [
         frame["id"].astype(str),
         frame["name"].fillna("").astype(str),
@@ -314,8 +319,14 @@ def collection_frame(collections: list[dict[str, Any]]) -> pd.DataFrame:
         frame["display_title"].fillna("").astype(str),
         frame["product_introduce"].fillna("").astype(str),
         frame["start_time"].fillna("").astype(str),
-        frame["sale_time_label"].fillna("").astype(str),
-        frame["lottery_names"].apply(search_value),
+        frame["start_time"].map(format_unix_shanghai).astype(str),
+        frame["pre_start_time"].fillna("").astype(str),
+        frame["pre_start_time"].map(format_unix_shanghai).astype(str),
+        frame["pre_end_time"].fillna("").astype(str),
+        frame["pre_end_time"].map(format_unix_shanghai).astype(str),
+        frame["lottery_names"].map(search_value),
+        frame["share_main_title"].fillna("").astype(str),
+        frame["share_sub_title"].fillna("").astype(str),
     ]
     frame["_search_text"] = text_parts[0]
     for part in text_parts[1:]:
