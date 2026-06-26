@@ -1,18 +1,20 @@
 # **bilibili-collection**
 
-一个每天自动更新的 Bilibili 收藏集索引和下载工具。你可以在网页中搜索、预览、勾选并下载收藏集，也可以在本地全量下载所有收藏集 metadata、图片和视频。
+一个每天自动更新的 Bilibili 收藏集索引和下载工具。你可以直接在网页中搜索、预览、勾选并下载收藏集，也可以在本地全量下载所有收藏集 metadata、图片和视频。
 
 ## **网页下载**
+
+访问：[https://bilibili-collection.streamlit.app/](https://bilibili-collection.streamlit.app/)
 
 页面基于每天自动更新的收藏集索引，支持按收藏集 ID、名称、状态和描述搜索，也可以分页浏览全量索引。
 
 下载流程：
 
 - 先搜索、浏览并勾选一个或多个收藏集。
-- 点击“生成压缩包”后，Streamlit 服务端才会临时获取公开收藏集详情、图片和视频，并在内存中写入 zip。
+- 点击“生成压缩包”后，Streamlit 服务器才会临时获取公开收藏集详情、图片和视频，并在内存中写入 zip。
 - 点击“保存压缩包”后，浏览器下载已经生成好的 zip 文件。
 
-如果你在本机运行页面，下载和打包发生在本机；如果部署到 Streamlit 服务器，下载和打包发生在对应服务器。
+如果你在本机运行页面，下载和打包发生在本机；如果使用在线应用，下载和打包发生在 `bilibili-collection.streamlit.app` 使用的 Streamlit 服务器。
 
 如果部署服务器下载 Bilibili 视频时遇到 403，通常是服务器出口 IP 被 Bilibili CDN 拒绝。应用会继承服务端的 `HTTP_PROXY` / `HTTPS_PROXY` 配置，也可以单独设置 `BILIBILI_MEDIA_PROXY` 给收藏集媒体下载使用。
 
