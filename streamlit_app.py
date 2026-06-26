@@ -502,7 +502,8 @@ def preview_data_uri(url: str) -> str | None:
     )
     try:
         with urlopen(request, timeout=20.0) as response:
-            content_type = response.headers.get_content_type() or mime_from_url(safe_url)
+            raw_content_type = response.headers.get("Content-Type")
+            content_type = response.headers.get_content_type() if raw_content_type else mime_from_url(safe_url)
             content = response.read(PREVIEW_MAX_BYTES + 1)
             if len(content) > PREVIEW_MAX_BYTES:
                 return None
@@ -637,13 +638,16 @@ def media_job_path(
 
 
 def unique_archive_path(path: str, seen_paths: dict[str, int]) -> str:
-    count = seen_paths.get(path, 0) + 1
-    seen_paths[path] = count
-    if count == 1:
-        return path
-
     parsed = Path(path)
-    return str(parsed.with_name(f"{parsed.stem}__{count}{parsed.suffix}"))
+    suffix_index = seen_paths.get(path, 0)
+    candidate = path
+    while candidate in seen_paths:
+        suffix_index += 1
+        candidate = str(parsed.with_name(f"{parsed.stem}__{suffix_index}{parsed.suffix}"))
+
+    seen_paths[path] = max(suffix_index, 1)
+    seen_paths[candidate] = 1
+    return candidate
 
 
 def media_job(
@@ -714,8 +718,12 @@ def iter_media_jobs(
 
 
 def download_media_to_file(media_url: str, target_path: Path) -> None:
+    safe_media_url = trusted_media_url(media_url)
+    if safe_media_url is None:
+        raise ValueError("Untrusted media URL")
+
     request = Request(
-        media_url,
+        safe_media_url,
         headers={
             "Accept": "*/*",
             "Referer": REFERER,
