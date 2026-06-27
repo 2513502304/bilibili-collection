@@ -9,7 +9,7 @@ import tempfile
 from collections.abc import Callable, Iterable
 from pathlib import Path
 from typing import Any
-from urllib.parse import unquote, urlparse, urlunparse
+from urllib.parse import urlencode, unquote, urlparse, urlunparse
 from zipfile import ZIP_DEFLATED, ZipFile
 
 import aiofiles
@@ -23,6 +23,7 @@ from waifuboard.utils import normalize_filepath
 ROOT = Path(__file__).resolve().parent
 INDEX_PATH = ROOT / "data" / "collection_index.json"
 DETAIL_API = "https://api.bilibili.com/x/vas/dlc_act/asset_bag"
+PURCHASE_PAGE_URL = "https://www.bilibili.com/h5/mall/digital-card/home"
 REFERER = "https://www.bilibili.com"
 APP_TIMEZONE = dt.timezone(dt.timedelta(hours=8), "UTC+8")
 PAGE_SIZE_OPTIONS = [12, 24, 48, 96]
@@ -203,6 +204,17 @@ st.markdown(
         margin-bottom: 0.25rem;
         min-height: 2.55rem;
         word-break: break-word;
+    }
+
+    .collection-name a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .collection-name a:hover {
+        color: #00a1d6;
+        text-decoration: underline;
+        text-underline-offset: 0.16rem;
     }
 
     .collection-meta {
@@ -514,6 +526,10 @@ def trusted_media_url(url: str) -> str | None:
     return urlunparse(parsed._replace(scheme="https"))
 
 
+def collection_purchase_url(collection: dict[str, Any]) -> str:
+    return f"{PURCHASE_PAGE_URL}?{urlencode({'from_id': '', 'act_id': int(collection['id'])})}"
+
+
 def render_header(index: dict[str, Any], collections: list[dict[str, Any]]) -> None:
     updated_at = str(index.get("updated_at") or "").replace("T", " ").replace("Z", " UTC")
     st.markdown(
@@ -536,6 +552,7 @@ def render_header(index: dict[str, Any], collections: list[dict[str, Any]]) -> N
 def render_collection_card(collection: dict[str, Any], selected_ids: set[int]) -> None:
     collection_id = int(collection["id"])
     safe_name = html.escape(str(collection["name"]))
+    safe_purchase_url = html.escape(collection_purchase_url(collection), quote=True)
     cover_url = str(collection.get("preview_cover_url") or collection["cover_url"])
     safe_cover_url = trusted_media_url(cover_url)
     image_html = (
@@ -553,7 +570,9 @@ def render_collection_card(collection: dict[str, Any], selected_ids: set[int]) -
             <div class="collection-cover">
                 {image_html}
             </div>
-            <div class="collection-name">{safe_name}</div>
+            <div class="collection-name">
+                <a href="{safe_purchase_url}" target="_blank" rel="noopener noreferrer">{safe_name}</a>
+            </div>
             <div class="collection-meta">ID: {collection_id}</div>
             <div class="collection-meta">价格: {html.escape(str(collection.get("price_label") or "-"))}</div>
             <div class="collection-meta">开售: {html.escape(format_unix_shanghai(collection.get("start_time")))}</div>

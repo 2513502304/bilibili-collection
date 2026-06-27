@@ -20,6 +20,7 @@ from urllib.request import ProxyHandler, Request, build_opener
 
 API_URL = "https://api.bilibili.com/x/vas/dlc_act/act/list"
 BASIC_API_URL = "https://api.bilibili.com/x/vas/dlc_act/act/basic"
+PURCHASE_PAGE_URL = "https://www.bilibili.com/h5/mall/digital-card/home"
 README_START = "<!-- BILIBILI_COLLECTION_INDEX_START -->"
 README_END = "<!-- BILIBILI_COLLECTION_INDEX_END -->"
 SHANGHAI_TZ = dt.timezone(dt.timedelta(hours=8))
@@ -526,54 +527,71 @@ def image_cell(name: str, url: str, width: int = COVER_PREVIEW_WIDTH) -> str:
     )
 
 
-def table_time(value: Any) -> str:
+def purchase_url(collection: dict[str, Any]) -> str:
+    return f"{PURCHASE_PAGE_URL}?{urlencode({'from_id': '', 'act_id': int(collection['id'])})}"
+
+
+def labeled_time(label: str, value: Any) -> str:
     formatted = format_unix_shanghai(value)
-    if not formatted:
-        return ""
+    return f"{label}：{html_text(formatted)}" if formatted else f"{label}："
 
-    date_part, _, time_part = formatted.partition(" ")
-    year, _, month_day = date_part.partition("/")
-    if not time_part or not month_day:
-        return html_text(formatted).replace(" ", "<br>")
 
-    return f"{html_text(year)}<br>{html_text(month_day)}<br>{html_text(time_part)}"
+def time_cell(collection: dict[str, Any]) -> str:
+    end = "永久" if collection.get("effective_forever") else format_unix_shanghai(collection.get("end_time"))
+    return "<br>".join(
+        (
+            labeled_time("预约", collection.get("pre_start_time")),
+            labeled_time("开售", collection.get("start_time")),
+            f"结束：{html_text(end)}",
+        )
+    )
+
+
+def stats_cell(collection: dict[str, Any]) -> str:
+    return "<br>".join(
+        (
+            f"卡池：{html_text(compact_int(collection.get('lottery_count')))}",
+            f"卡牌：{html_text(compact_int(collection.get('item_total_count')))}",
+            f"预约：{html_text(compact_int(collection.get('total_book_cnt')))}",
+            f"已售：{html_text(compact_int(collection.get('total_buy_cnt')))}",
+        )
+    )
+
+
+def description_cell(collection: dict[str, Any], purchase_href: str) -> str:
+    name = html_text(str(collection["name"]))
+    price = html_text(str(collection.get("price_label") or ""))
+    status = html_text(str(collection.get("status") or "在售中"))
+    display_title = html_text(str(collection.get("display_title") or ""))
+    return "<br>".join(
+        (
+            f"ID: {html_text(str(collection['id']))}",
+            f'名称：<a href="{purchase_href}">{name}</a>',
+            f"单抽价格：{price}",
+            f"售卖状态：{status}",
+            f"奖励类型：{display_title}",
+        )
+    )
 
 
 def collection_row(
     collection: dict[str, Any],
     cover_width: int = COVER_PREVIEW_WIDTH,
 ) -> str:
-    collection_id_value = str(collection["id"])
-    name = html_text(str(collection["name"]))
+    safe_purchase_url = html.escape(purchase_url(collection), quote=True)
     cover = image_cell(
         str(collection["name"]),
         str(collection.get("preview_cover_url") or collection["cover_url"]),
         width=cover_width,
     )
-    status = html_text(str(collection.get("status") or ""))
-    price = html_text(str(collection.get("price_label") or ""))
-    pre_start = table_time(collection.get("pre_start_time"))
-    start = table_time(collection.get("start_time"))
-    end = "永久" if collection.get("effective_forever") else table_time(collection.get("end_time"))
-    lottery_count = html_text(compact_int(collection.get("lottery_count")))
-    item_count = html_text(compact_int(collection.get("item_total_count")))
-    book_count = html_text(compact_int(collection.get("total_book_cnt")))
-    buy_count = html_text(compact_int(collection.get("total_buy_cnt")))
-    display_title = html_text(str(collection.get("display_title") or ""))
+    description = description_cell(collection, safe_purchase_url)
+    times = time_cell(collection)
+    stats = stats_cell(collection)
     cells = (
-        f'<td align="center"><code>{html_text(collection_id_value)}</code></td>',
-        f"<td><strong>{name}</strong></td>",
         f'<td align="center" width="{COVER_COLUMN_WIDTH}">{cover}</td>',
-        f'<td align="center">{status}</td>',
-        f'<td align="center">{price}</td>',
-        f'<td align="center">{pre_start}</td>',
-        f'<td align="center">{start}</td>',
-        f'<td align="center">{end}</td>',
-        f'<td align="center">{lottery_count}</td>',
-        f'<td align="center">{item_count}</td>',
-        f'<td align="center">{book_count}</td>',
-        f'<td align="center">{buy_count}</td>',
-        f'<td align="center">{display_title}</td>',
+        f'<td align="left">{description}</td>',
+        f'<td align="left">{times}</td>',
+        f'<td align="left">{stats}</td>',
     )
     return "<tr>" + "".join(cells) + "</tr>"
 
@@ -585,19 +603,10 @@ def table_for_collections(
     lines = [
         "<table>",
         "<thead><tr>"
-        '<th align="center">ID</th>'
-        "<th>收藏集名称</th>"
         f'<th align="center" width="{COVER_COLUMN_WIDTH}">封面图</th>'
-        '<th align="center">状态</th>'
-        '<th align="center">单抽价格</th>'
-        '<th align="center">预约开始</th>'
-        '<th align="center">开售时间</th>'
-        '<th align="center">结束时间</th>'
-        '<th align="center">卡池</th>'
-        '<th align="center">卡牌</th>'
-        '<th align="center">预约数</th>'
-        '<th align="center">已售数</th>'
-        '<th align="center">奖励</th>'
+        '<th align="left">描述</th>'
+        '<th align="left">时间</th>'
+        '<th align="left">统计</th>'
         "</tr></thead>",
         "<tbody>",
     ]
