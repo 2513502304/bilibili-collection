@@ -25,6 +25,7 @@ README_END = "<!-- BILIBILI_COLLECTION_INDEX_END -->"
 SHANGHAI_TZ = dt.timezone(dt.timedelta(hours=8))
 BASIC_WORKERS = 4
 REQUEST_RETRIES = 3
+COVER_PREVIEW_WIDTH = 300
 USER_AGENTS = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
@@ -518,7 +519,10 @@ def markdown_text(value: str) -> str:
 def image_cell(name: str, url: str) -> str:
     escaped_name = html.escape(name, quote=True)
     escaped_url = html.escape(url, quote=True)
-    return f'<img src="{escaped_url}" alt="{escaped_name}" width="96">'
+    return (
+        f'<img src="{escaped_url}" alt="{escaped_name}" '
+        f'width="{COVER_PREVIEW_WIDTH}">'
+    )
 
 
 def collection_row(collection: dict[str, Any]) -> str:
