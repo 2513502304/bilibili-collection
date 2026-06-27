@@ -48,7 +48,7 @@ PAGE_SIZE_HELP = """- 控制当前页面一次渲染多少个收藏集卡片。
 - 数量越大，页面封面越多，首次渲染和滚动会更重。
 - 示例：浏览全量索引时可用 `24`，快速翻页时可用 `48`。"""
 PAGE_JUMP_HELP = """- 输入页码后会直接跳转到对应页面。
-- 左右两侧的 `-` / `+` 按钮用于快速切换上一页或下一页。
+- 输入框自带步进按钮，可用于快速切换上一页或下一页。
 - 搜索条件变化时会回到第 1 页，避免停留在旧结果的页码上。"""
 BATCH_SELECT_HELP = """- 从当前搜索结果中批量添加或移除收藏集。
 - 这里的选择会和下方卡片 checkbox 保持同步。
@@ -458,38 +458,16 @@ def render_page_jump_controls(
 ) -> int:
     control_col, caption_col = st.columns([1.6, 3], vertical_alignment="center")
     with control_col:
-        minus_col, input_col, plus_col = st.columns([0.7, 1.5, 0.7], vertical_alignment="bottom")
-        with minus_col:
-            if st.button(
-                "-",
-                icon=":material/remove:",
-                disabled=page <= 1,
-                key="page_minus",
-                width="stretch",
-                help="上一页",
-            ):
-                request_page(page - 1)
-        with input_col:
-            page = int(
-                st.number_input(
-                    "页码",
-                    min_value=1,
-                    max_value=max_page,
-                    step=1,
-                    key=PAGE_KEY,
-                    help=PAGE_JUMP_HELP,
-                )
+        page = int(
+            st.number_input(
+                "页码",
+                min_value=1,
+                max_value=max_page,
+                step=1,
+                key=PAGE_KEY,
+                help=PAGE_JUMP_HELP,
             )
-        with plus_col:
-            if st.button(
-                "+",
-                icon=":material/add:",
-                disabled=page >= max_page,
-                key="page_plus",
-                width="stretch",
-                help="下一页",
-            ):
-                request_page(page + 1)
+        )
 
     with caption_col:
         st.markdown(
