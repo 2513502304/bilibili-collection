@@ -918,24 +918,24 @@ def render_pagination(page: int, max_page: int, label: str) -> None:
     if max_page <= 1:
         return
 
-    cols = st.columns([1, 1, 1.2, 1, 1], vertical_alignment="center")
-    with cols[0]:
-        if st.button("首页", disabled=page <= 1, key=f"{label}_first", icon=":material/first_page:"):
-            request_page(1)
-    with cols[1]:
-        if st.button("上一页", disabled=page <= 1, key=f"{label}_prev", icon=":material/chevron_left:"):
-            request_page(page - 1)
-    with cols[2]:
+    left_col, center_col, right_col = st.columns([2, 1, 2], vertical_alignment="center")
+    with left_col:
+        with st.container(horizontal=True, gap="small"):
+            if st.button("首页", disabled=page <= 1, key=f"{label}_first", icon=":material/first_page:"):
+                request_page(1)
+            if st.button("上一页", disabled=page <= 1, key=f"{label}_prev", icon=":material/chevron_left:"):
+                request_page(page - 1)
+    with center_col:
         st.markdown(
             f"<div class='selection-line' style='text-align:center;'>第 {page} / {max_page} 页</div>",
             unsafe_allow_html=True,
         )
-    with cols[3]:
-        if st.button("下一页", disabled=page >= max_page, key=f"{label}_next", icon=":material/chevron_right:"):
-            request_page(page + 1)
-    with cols[4]:
-        if st.button("末页", disabled=page >= max_page, key=f"{label}_last", icon=":material/last_page:"):
-            request_page(max_page)
+    with right_col:
+        with st.container(horizontal=True, horizontal_alignment="right", gap="small"):
+            if st.button("下一页", disabled=page >= max_page, key=f"{label}_next", icon=":material/chevron_right:"):
+                request_page(page + 1)
+            if st.button("末页", disabled=page >= max_page, key=f"{label}_last", icon=":material/last_page:"):
+                request_page(max_page)
 
 
 def archive_ready_for_current_selection() -> bool:
