@@ -104,7 +104,16 @@ uv run scripts/update_collection_index.py --offline
 <!-- BILIBILI_COLLECTION_INDEX_START -->
 <!-- 下面内容由 scripts/update_collection_index.py 自动生成，请勿手动编辑此区块。 -->
 
-## **最近 7 天预约开始收藏集（截至北京时间 2026/07/27）**
+## **最近 7 天预约开始收藏集（截至北京时间 2026/07/28）**
+
+### **2026/07/28**
+
+<table>
+<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
+<tbody>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f57def04229bc5ee33a8d885614e2bb3ee5b2852.png" alt="小孩曾卓君冠军收藏集" width="300"></td><td align="left">ID: 113713<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113713">小孩曾卓君冠军收藏集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/28 19:00<br>开售：2026/07/29 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：19<br>预约：187<br>已售：0</td></tr>
+</tbody>
+</table>
 
 ### **2026/07/24**
 
@@ -136,22 +145,12 @@ uv run scripts/update_collection_index.py --offline
 </tbody>
 </table>
 
-### **2026/07/21**
-
-<table>
-<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
-<tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/176140a5980069a86aa849966b642ba86fc72b73.jpg" alt="比奇堡居民收藏集" width="300"></td><td align="left">ID: 113547<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113547">比奇堡居民收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/21 12:00<br>开售：2026/07/22 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：288<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/6ac473e3cd59b78de254d24c47ca8ce65e856fb2.jpg" alt="不同的玲子" width="300"></td><td align="left">ID: 113493<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113493">不同的玲子</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/21 19:00<br>开售：2026/07/22 19:00<br>结束：2027/02/14 00:00</td><td align="left">卡池：1<br>卡牌：9<br>预约：325<br>已售：0</td></tr>
-</tbody>
-</table>
-
 ---
 
 ## **全部收藏集索引**
 
 <details>
-<summary>展开全部 1653 个收藏集封面</summary>
+<summary>展开全部 1654 个收藏集封面</summary>
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
@@ -1376,7 +1375,7 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7bb4f7a2deced0281a78ea638d08869c11f8e1c1.jpg" alt="夏米范-独家饭拍" width="300"></td><td align="left">ID: 109288<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109288">夏米范-独家饭拍</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/08/26 19:00<br>开售：2025/08/27 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：15<br>预约：1,048<br>已售：15,049</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/ba4a1a54e7a5ce3f8ca0f76e55c74a15da4c7cab.png" alt="阿萨Aza·棱中溢彩" width="300"></td><td align="left">ID: 109305<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109305">阿萨Aza·棱中溢彩</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/08/27 19:00<br>开售：2025/08/28 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：17<br>预约：8,652<br>已售：117,646</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/514c9e004ce1ebe6099f1829c79fafa84a85cdba.jpg" alt="夏日重现" width="300"></td><td align="left">ID: 109317<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109317">夏日重现</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/08/30 12:00<br>开售：2025/08/31 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：271<br>已售：9,975</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/5aefacae34cda509f35abab310942ad6346012dd.jpg" alt="贝拉的冒险" width="300"></td><td align="left">ID: 109318<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109318">贝拉的冒险</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/08/31 19:00<br>开售：2025/09/01 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：3,392<br>已售：63,115</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/5aefacae34cda509f35abab310942ad6346012dd.jpg" alt="贝拉的冒险-匣中惊鸿" width="300"></td><td align="left">ID: 109318<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109318">贝拉的冒险-匣中惊鸿</a><br>单抽价格：9.9 元<br>售卖状态：新卡池<br>奖励类型：任务奖励</td><td align="left">预约：2025/08/31 19:00<br>开售：2025/09/01 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：3,392<br>已售：63,115</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/4a146debc6195af2d1e4805bcb646b2ec0063a00.jpg" alt="初音未来·生日集-Heartbeat" width="300"></td><td align="left">ID: 109320<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109320">初音未来·生日集-Heartbeat</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/08/29 12:00<br>开售：2025/08/30 12:00<br>结束：永久</td><td align="left">卡池：2<br>卡牌：18<br>预约：6,556<br>已售：323,870</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/ac0a867154648d9b25958aa521e6cdac24a6b90e.png" alt="演剧星世界" width="300"></td><td align="left">ID: 109323<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109323">演剧星世界</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2025/09/29 18:00<br>开售：2025/09/30 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：33<br>预约：1,168<br>已售：10,243</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a85a69f6f034c76d395c2b4662b80b26246d7686.jpg" alt="゚喵奈" width="300"></td><td align="left">ID: 109327<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=109327">゚喵奈</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/08/29 19:00<br>开售：2025/08/30 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：970<br>已售：5,428</td></tr>
@@ -1808,6 +1807,7 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/57b92f72632d94f0aba150373132216e2fd4f0c3.png" alt="蛙吹Keroro-心动次元" width="300"></td><td align="left">ID: 113671<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113671">蛙吹Keroro-心动次元</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/23 19:00<br>开售：2026/07/24 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：313<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/8e7c56d7d3fd407a912b73a22d2365cee2ed57de.png" alt="HERETICS·无畏契约" width="300"></td><td align="left">ID: 113677<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113677">HERETICS·无畏契约</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/19 20:00<br>开售：2026/07/20 20:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：20<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/620a6effc75cbdc4c491e22b7956c175aa6d831e.jpg" alt="二阶堂真红" width="300"></td><td align="left">ID: 113686<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113686">二阶堂真红</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/20 18:00<br>开售：2026/07/21 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：25<br>预约：3,115<br>已售：300</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f57def04229bc5ee33a8d885614e2bb3ee5b2852.png" alt="小孩曾卓君冠军收藏集" width="300"></td><td align="left">ID: 113713<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113713">小孩曾卓君冠军收藏集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/28 19:00<br>开售：2026/07/29 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：19<br>预约：187<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f39885b59ef548d11671ee9f196d9a35ecbc7e51.jpg" alt="東雪蓮Official" width="300"></td><td align="left">ID: 113719<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113719">東雪蓮Official</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/24 19:00<br>开售：2026/07/25 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：1,234<br>已售：0</td></tr>
 </tbody>
 </table>
