@@ -104,7 +104,16 @@ uv run scripts/update_collection_index.py --offline
 <!-- BILIBILI_COLLECTION_INDEX_START -->
 <!-- 下面内容由 scripts/update_collection_index.py 自动生成，请勿手动编辑此区块。 -->
 
-## **最近 7 天预约开始收藏集（截至北京时间 2026/08/12）**
+## **最近 7 天预约开始收藏集（截至北京时间 2026/08/13）**
+
+### **2026/08/13**
+
+<table>
+<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
+<tbody>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/aa6748be009a997261c3604ee34cf89efb4c6cec.jpg" alt="VIRTUS战队" width="300"></td><td align="left">ID: 113982<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113982">VIRTUS战队</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/13 12:00<br>开售：2026/08/14 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：27<br>已售：0</td></tr>
+</tbody>
+</table>
 
 ### **2026/08/12**
 
@@ -112,7 +121,7 @@ uv run scripts/update_collection_index.py --offline
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
 <tbody>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/dc92ca91baf645f0cae039c01e8ef51a868ce244.png" alt="鸣潮·致予新世界" width="300"></td><td align="left">ID: 113956<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113956">鸣潮·致予新世界</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/12 12:00<br>开售：2026/08/14 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：24<br>预约：65,692<br>已售：720</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d66be5c191a4e5e46cd3adac0b81f8595938ef1b.jpg" alt="奥特曼英雄传" width="300"></td><td align="left">ID: 113938<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113938">奥特曼英雄传</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/12 17:00<br>开售：2026/08/13 17:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：22<br>预约：232<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d66be5c191a4e5e46cd3adac0b81f8595938ef1b.jpg" alt="奥特曼英雄传" width="300"></td><td align="left">ID: 113938<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113938">奥特曼英雄传</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/12 17:00<br>开售：2026/08/13 17:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：22<br>预约：232<br>已售：0</td></tr>
 </tbody>
 </table>
 
@@ -130,7 +139,7 @@ uv run scripts/update_collection_index.py --offline
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
 <tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/6ea8b5b245e98bc720b80fed5fadd142eb9bd693.png" alt="假面骑士55th 墨影骑志" width="300"></td><td align="left">ID: 113942<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113942">假面骑士55th 墨影骑志</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/10 19:00<br>开售：2026/08/11 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：17<br>预约：234<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/6ea8b5b245e98bc720b80fed5fadd142eb9bd693.png" alt="假面骑士55th 墨影骑志" width="300"></td><td align="left">ID: 113942<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113942">假面骑士55th 墨影骑志</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/10 19:00<br>开售：2026/08/11 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：17<br>预约：234<br>已售：0</td></tr>
 </tbody>
 </table>
 
@@ -153,21 +162,12 @@ uv run scripts/update_collection_index.py --offline
 </tbody>
 </table>
 
-### **2026/08/06**
-
-<table>
-<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
-<tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/404253de32b1949b53c4747aa131d5718ed69e8e.jpg" alt="G2 ESPORTS" width="300"></td><td align="left">ID: 113885<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113885">G2 ESPORTS</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/06 12:00<br>开售：2026/08/07 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：315<br>已售：0</td></tr>
-</tbody>
-</table>
-
 ---
 
 ## **全部收藏集索引**
 
 <details>
-<summary>展开全部 1672 个收藏集封面</summary>
+<summary>展开全部 1673 个收藏集封面</summary>
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
@@ -1517,7 +1517,7 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/007e41ae95730a0648f59753d30e56530592f7d8.png" alt="假面骑士空我收藏集" width="300"></td><td align="left">ID: 110551<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110551">假面骑士空我收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/21 17:00<br>开售：2025/11/22 17:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：673<br>已售：19,308</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/8708905dea2323b05fd2ffb775f50508261c07c1.jpg" alt="库宝official" width="300"></td><td align="left">ID: 110554<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110554">库宝official</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/19 19:00<br>开售：2025/11/20 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：13<br>预约：817<br>已售：8,529</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/634d0753f480a02cf5183f24c5bbbc9c6cb5365b.jpg" alt="天津罪" width="300"></td><td align="left">ID: 110566<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110566">天津罪</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/19 18:00<br>开售：2025/11/20 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：32<br>预约：4,310<br>已售：77,973</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/ce2b0224d0c4625345d0d88174162d39c7ffb10d.png" alt="道诡异仙" width="300"></td><td align="left">ID: 110590<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110590">道诡异仙</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/22 12:00<br>开售：2025/11/23 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：18<br>预约：1,529<br>已售：48,387</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/ce2b0224d0c4625345d0d88174162d39c7ffb10d.png" alt="道诡异仙-我执我妄" width="300"></td><td align="left">ID: 110590<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110590">道诡异仙-我执我妄</a><br>单抽价格：9.9 元<br>售卖状态：新卡池<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/22 12:00<br>开售：2025/11/23 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：18<br>预约：1,529<br>已售：48,387</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/6bfa1ecf4e3cbfa24aa2f92a42986bce1cb63eb7.png" alt="Phigros" width="300"></td><td align="left">ID: 110597<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110597">Phigros</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/23 12:00<br>开售：2025/11/24 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：12,975<br>已售：201,791</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/ad1a054b74d501876c0b7cd336a46b94a7ea1806.png" alt="重生之道收藏集" width="300"></td><td align="left">ID: 110604<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110604">重生之道收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/27 12:00<br>开售：2025/11/28 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：19<br>预约：294<br>已售：1,456</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/fec8c35ff00ddcedacda1de40e5bb7c37081a12f.png" alt="轻松小熊" width="300"></td><td align="left">ID: 110611<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=110611">轻松小熊</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2025/11/26 18:00<br>开售：2025/11/27 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：812<br>已售：4,593</td></tr>
@@ -1840,10 +1840,11 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/4f66c7437e4ddefd44448bf424a73235a9128cc0.jpg" alt="优优酱yomi" width="300"></td><td align="left">ID: 113889<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113889">优优酱yomi</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/05 18:00<br>开售：2026/08/06 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：13<br>预约：128<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a876efc324961266d4f5426f7b89812c05d4c0d5.png" alt="铃音Suzune-夏梦聆音" width="300"></td><td align="left">ID: 113913<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113913">铃音Suzune-夏梦聆音</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/07 19:30<br>开售：2026/08/08 19:30<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：351<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/807d9145db82fbfe7f21f4182ca9da225fa7ee63.jpg" alt="名侦探柯南黑暗组织系列" width="300"></td><td align="left">ID: 113931<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113931">名侦探柯南黑暗组织系列</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/09 17:00<br>开售：2026/08/10 17:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：386<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d66be5c191a4e5e46cd3adac0b81f8595938ef1b.jpg" alt="奥特曼英雄传" width="300"></td><td align="left">ID: 113938<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113938">奥特曼英雄传</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/12 17:00<br>开售：2026/08/13 17:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：22<br>预约：232<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/6ea8b5b245e98bc720b80fed5fadd142eb9bd693.png" alt="假面骑士55th 墨影骑志" width="300"></td><td align="left">ID: 113942<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113942">假面骑士55th 墨影骑志</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/10 19:00<br>开售：2026/08/11 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：17<br>预约：234<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d66be5c191a4e5e46cd3adac0b81f8595938ef1b.jpg" alt="奥特曼英雄传" width="300"></td><td align="left">ID: 113938<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113938">奥特曼英雄传</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/12 17:00<br>开售：2026/08/13 17:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：22<br>预约：232<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/6ea8b5b245e98bc720b80fed5fadd142eb9bd693.png" alt="假面骑士55th 墨影骑志" width="300"></td><td align="left">ID: 113942<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113942">假面骑士55th 墨影骑志</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/10 19:00<br>开售：2026/08/11 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：17<br>预约：234<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/dc92ca91baf645f0cae039c01e8ef51a868ce244.png" alt="鸣潮·致予新世界" width="300"></td><td align="left">ID: 113956<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113956">鸣潮·致予新世界</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/12 12:00<br>开售：2026/08/14 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：24<br>预约：65,692<br>已售：720</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/8fbf56e9769b6f7dc47beaba1d1c324ea7d7b881.jpg" alt="DOTA2 TI2026" width="300"></td><td align="left">ID: 113958<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113958">DOTA2 TI2026</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/11 19:00<br>开售：2026/08/12 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：730<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/aa6748be009a997261c3604ee34cf89efb4c6cec.jpg" alt="VIRTUS战队" width="300"></td><td align="left">ID: 113982<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113982">VIRTUS战队</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/13 12:00<br>开售：2026/08/14 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：27<br>已售：0</td></tr>
 </tbody>
 </table>
 
