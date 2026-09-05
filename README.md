@@ -104,7 +104,7 @@ uv run scripts/update_collection_index.py --offline
 <!-- BILIBILI_COLLECTION_INDEX_START -->
 <!-- 下面内容由 scripts/update_collection_index.py 自动生成，请勿手动编辑此区块。 -->
 
-## **最近 7 天预约开始收藏集（截至北京时间 2026/09/04）**
+## **最近 7 天预约开始收藏集（截至北京时间 2026/09/05）**
 
 ### **2026/09/04**
 
@@ -133,15 +133,6 @@ uv run scripts/update_collection_index.py --offline
 <tbody>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/6d8f40b3446b1840b77f804586c5239e12c18cd0.png" alt="符瑶-触梦百形" width="300"></td><td align="left">ID: 114220<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114220">符瑶-触梦百形</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/30 19:00<br>开售：2026/08/31 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：579<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/908649c0da2c3e1367c4dce652bc9a8a93920ca1.jpg" alt="初音未来生日集" width="300"></td><td align="left">ID: 114177<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114177">初音未来生日集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/30 12:00<br>开售：2026/08/31 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：2,255<br>已售：0</td></tr>
-</tbody>
-</table>
-
-### **2026/08/29**
-
-<table>
-<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
-<tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/288ecd8e5740a8ae5d36ab93031f3e93025dfc3c.png" alt="吉小8与吉美" width="300"></td><td align="left">ID: 114211<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114211">吉小8与吉美</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/08/29 12:00<br>开售：2026/08/30 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：399<br>已售：0</td></tr>
 </tbody>
 </table>
 
