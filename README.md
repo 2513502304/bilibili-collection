@@ -104,15 +104,24 @@ uv run scripts/update_collection_index.py --offline
 <!-- BILIBILI_COLLECTION_INDEX_START -->
 <!-- 下面内容由 scripts/update_collection_index.py 自动生成，请勿手动编辑此区块。 -->
 
-## **最近 7 天预约开始收藏集（截至北京时间 2026/10/16）**
+## **最近 7 天预约开始收藏集（截至北京时间 2026/10/17）**
+
+### **2026/10/17**
+
+<table>
+<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
+<tbody>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a1e6bf3800df90a80923cf72e735abbe3c024aae.png" alt="伽蓝KING-松月川收藏集" width="300"></td><td align="left">ID: 114315<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114315">伽蓝KING-松月川收藏集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/17 22:00<br>开售：2026/10/18 22:00<br>结束：2029/10/18 00:00</td><td align="left">卡池：1<br>卡牌：9<br>预约：233<br>已售：0</td></tr>
+</tbody>
+</table>
 
 ### **2026/10/16**
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
 <tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/c4c8164fac760f9e0498771816f91df7d10de1a1.png" alt="不二丸叽的蓝色心动" width="300"></td><td align="left">ID: 114724<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114724">不二丸叽的蓝色心动</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 22:00<br>开售：2026/10/17 22:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：99<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0cf098d39fd9cc40130ade81da20590232e74faf.jpg" alt="小辞炒糍粑" width="300"></td><td align="left">ID: 114713<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114713">小辞炒糍粑</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 12:00<br>开售：2026/10/17 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：851<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/c4c8164fac760f9e0498771816f91df7d10de1a1.png" alt="不二丸叽的蓝色心动" width="300"></td><td align="left">ID: 114724<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114724">不二丸叽的蓝色心动</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 22:00<br>开售：2026/10/17 22:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：99<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0cf098d39fd9cc40130ade81da20590232e74faf.jpg" alt="小辞炒糍粑" width="300"></td><td align="left">ID: 114713<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114713">小辞炒糍粑</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 12:00<br>开售：2026/10/17 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：851<br>已售：0</td></tr>
 </tbody>
 </table>
 
@@ -131,7 +140,7 @@ uv run scripts/update_collection_index.py --offline
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
 <tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0607e718082c4bab3cdf71cd7b5b911731090562.png" alt="魔法少女小圆15周年" width="300"></td><td align="left">ID: 114603<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114603">魔法少女小圆15周年</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/14 18:00<br>开售：2026/10/15 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：1,118<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0607e718082c4bab3cdf71cd7b5b911731090562.png" alt="魔法少女小圆15周年" width="300"></td><td align="left">ID: 114603<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114603">魔法少女小圆15周年</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/14 18:00<br>开售：2026/10/15 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：1,118<br>已售：0</td></tr>
 </tbody>
 </table>
 
@@ -156,21 +165,12 @@ uv run scripts/update_collection_index.py --offline
 </tbody>
 </table>
 
-### **2026/10/10**
-
-<table>
-<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
-<tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d55421251bf06cf4d880fb75edb92c134705af4c.jpg" alt="慕儿Ya收藏集" width="300"></td><td align="left">ID: 114600<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114600">慕儿Ya收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/10 19:00<br>开售：2026/10/11 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：25<br>预约：179<br>已售：0</td></tr>
-</tbody>
-</table>
-
 ---
 
 ## **全部收藏集索引**
 
 <details>
-<summary>展开全部 1758 个收藏集封面</summary>
+<summary>展开全部 1759 个收藏集封面</summary>
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
@@ -1895,6 +1895,7 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/4bf0c07769c9810446abfb90edd762273118e6f4.png" alt="秋葵AKIAOI" width="300"></td><td align="left">ID: 114295<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114295">秋葵AKIAOI</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/12 19:00<br>开售：2026/10/13 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：506<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f2f4a67940de2a54f31b8b1e6095009324f0ca4c.jpg" alt="凶鸭栗" width="300"></td><td align="left">ID: 114311<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114311">凶鸭栗</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/09/28 18:00<br>开售：2026/09/29 18:00<br>结束：2026/12/31 23:59</td><td align="left">卡池：1<br>卡牌：16<br>预约：153<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/dc19265a6d7596569b17a50183ae248550189c35.png" alt="ran9u艺术集" width="300"></td><td align="left">ID: 114314<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114314">ran9u艺术集</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/09/24 18:00<br>开售：2026/09/25 18:00<br>结束：2028/09/25 18:00</td><td align="left">卡池：1<br>卡牌：8<br>预约：244<br>已售：1,094</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a1e6bf3800df90a80923cf72e735abbe3c024aae.png" alt="伽蓝KING-松月川收藏集" width="300"></td><td align="left">ID: 114315<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114315">伽蓝KING-松月川收藏集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/17 22:00<br>开售：2026/10/18 22:00<br>结束：2029/10/18 00:00</td><td align="left">卡池：1<br>卡牌：9<br>预约：233<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f91178a9ca33a6d1119311cba708c0004e8d005f.jpg" alt="蜡笔小新超萌拼豆" width="300"></td><td align="left">ID: 114335<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114335">蜡笔小新超萌拼豆</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/09/15 12:00<br>开售：2026/09/16 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：11<br>预约：546<br>已售：404</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/3f9aeabe6ef5894b0334597f09e609831f88ee1d.jpg" alt="机动战士高达 闪光的哈萨维" width="300"></td><td align="left">ID: 114338<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114338">机动战士高达 闪光的哈萨维</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/09/13 18:00<br>开售：2026/09/14 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：13<br>预约：276<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/593b6b704b044a6d0a7502fca560cffee34265af.jpg" alt="鬼灭之刃" width="300"></td><td align="left">ID: 114349<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114349">鬼灭之刃</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/09/16 18:00<br>开售：2026/09/17 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：24<br>预约：410<br>已售：0</td></tr>
@@ -1924,15 +1925,15 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d2c4bf3e38cd951968c422c22b2fe912fefc91e0.jpg" alt="飞莎儿收藏集" width="300"></td><td align="left">ID: 114580<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114580">飞莎儿收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/01 14:30<br>开售：2026/10/02 14:30<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：4,086<br>已售：265</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/e862facde79e1df79427fca8c9b38905a47d3778.jpg" alt="拓麻歌子" width="300"></td><td align="left">ID: 114598<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114598">拓麻歌子</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/09 18:00<br>开售：2026/10/10 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：249<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d55421251bf06cf4d880fb75edb92c134705af4c.jpg" alt="慕儿Ya收藏集" width="300"></td><td align="left">ID: 114600<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114600">慕儿Ya收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/10 19:00<br>开售：2026/10/11 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：25<br>预约：179<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0607e718082c4bab3cdf71cd7b5b911731090562.png" alt="魔法少女小圆15周年" width="300"></td><td align="left">ID: 114603<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114603">魔法少女小圆15周年</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/14 18:00<br>开售：2026/10/15 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：1,118<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0607e718082c4bab3cdf71cd7b5b911731090562.png" alt="魔法少女小圆15周年" width="300"></td><td align="left">ID: 114603<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114603">魔法少女小圆15周年</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/14 18:00<br>开售：2026/10/15 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：1,118<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/2175dc7d6ec3b3b6f757149e56e510ec113654c2.png" alt="数码宝贝" width="300"></td><td align="left">ID: 114626<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114626">数码宝贝</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/09 18:00<br>开售：2026/10/11 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：22<br>预约：376<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/1c53060a21dd76bd89ac2b6b88b9fe85ed02d5f1.jpg" alt="Miiiiichan" width="300"></td><td align="left">ID: 114632<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114632">Miiiiichan</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/12 18:00<br>开售：2026/10/13 18:00<br>结束：2028/01/31 00:00</td><td align="left">卡池：1<br>卡牌：18<br>预约：63<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7b898d69920acd61f7ed62485ddfa1de96a240cc.png" alt="元气少女缘结神" width="300"></td><td align="left">ID: 114664<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114664">元气少女缘结神</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/12 18:00<br>开售：2026/10/13 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：186<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/2f72f518c5b80529ee7d609a20377ea5f2dae613.jpg" alt="艾尔莎_Channel" width="300"></td><td align="left">ID: 114675<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114675">艾尔莎_Channel</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/12 19:30<br>开售：2026/10/13 19:30<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：2,187<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/72e338b8a863317f94a6f2a1f0bee5735fc96546.png" alt="公主连结·晴滩时光" width="300"></td><td align="left">ID: 114697<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114697">公主连结·晴滩时光</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/15 12:00<br>开售：2026/10/16 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：25<br>预约：1,053<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/1a4f25bbc594828648d03da95d391d409b0ad45c.jpg" alt="BLG·2026长风为序信念作答" width="300"></td><td align="left">ID: 114706<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114706">BLG·2026长风为序信念作答</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/15 19:00<br>开售：2026/10/16 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：28<br>预约：730<br>已售：300</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0cf098d39fd9cc40130ade81da20590232e74faf.jpg" alt="小辞炒糍粑" width="300"></td><td align="left">ID: 114713<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114713">小辞炒糍粑</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 12:00<br>开售：2026/10/17 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：851<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/c4c8164fac760f9e0498771816f91df7d10de1a1.png" alt="不二丸叽的蓝色心动" width="300"></td><td align="left">ID: 114724<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114724">不二丸叽的蓝色心动</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 22:00<br>开售：2026/10/17 22:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：99<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/0cf098d39fd9cc40130ade81da20590232e74faf.jpg" alt="小辞炒糍粑" width="300"></td><td align="left">ID: 114713<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114713">小辞炒糍粑</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 12:00<br>开售：2026/10/17 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：851<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/c4c8164fac760f9e0498771816f91df7d10de1a1.png" alt="不二丸叽的蓝色心动" width="300"></td><td align="left">ID: 114724<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114724">不二丸叽的蓝色心动</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/16 22:00<br>开售：2026/10/17 22:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：99<br>已售：0</td></tr>
 </tbody>
 </table>
 
