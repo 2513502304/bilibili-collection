@@ -104,15 +104,25 @@ uv run scripts/update_collection_index.py --offline
 <!-- BILIBILI_COLLECTION_INDEX_START -->
 <!-- 下面内容由 scripts/update_collection_index.py 自动生成，请勿手动编辑此区块。 -->
 
-## **最近 7 天预约开始收藏集（截至北京时间 2026/10/23）**
+## **最近 7 天预约开始收藏集（截至北京时间 2026/10/24）**
+
+### **2026/10/24**
+
+<table>
+<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
+<tbody>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/c27f8bb29d6495c17b01a2733e5ff6b29804df40.png" alt="黑岛麻由_online" width="300"></td><td align="left">ID: 114845<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114845">黑岛麻由_online</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/24 19:00<br>开售：2026/10/25 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：227<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a47fcbbe6d91244b5df47b2d7b06967fb29c0b70.png" alt="奶油Kuriimu" width="300"></td><td align="left">ID: 114782<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114782">奶油Kuriimu</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/24 18:00<br>开售：2026/10/25 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：17<br>预约：400<br>已售：0</td></tr>
+</tbody>
+</table>
 
 ### **2026/10/23**
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
 <tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/45b8d3865709f1fd2bf2afa8137244e659081b21.jpg" alt="笔子Penz·时序集" width="300"></td><td align="left">ID: 114853<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114853">笔子Penz·时序集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 19:00<br>开售：2026/10/24 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：272<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7d35137572e17a52ede48aa1ffacde73c5cb72ef.png" alt="ONCEAGAIN战队收藏集" width="300"></td><td align="left">ID: 114810<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114810">ONCEAGAIN战队收藏集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 20:00<br>开售：2026/10/24 20:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：989<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/45b8d3865709f1fd2bf2afa8137244e659081b21.jpg" alt="笔子Penz·时序集" width="300"></td><td align="left">ID: 114853<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114853">笔子Penz·时序集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 19:00<br>开售：2026/10/24 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：272<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7d35137572e17a52ede48aa1ffacde73c5cb72ef.png" alt="ONCEAGAIN战队收藏集" width="300"></td><td align="left">ID: 114810<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114810">ONCEAGAIN战队收藏集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 20:00<br>开售：2026/10/24 20:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：989<br>已售：0</td></tr>
 </tbody>
 </table>
 
@@ -135,7 +145,7 @@ uv run scripts/update_collection_index.py --offline
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
 <tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/82335b078f6957e19f94a62c0606ca69df84cac1.jpg" alt="喜羊羊与灰太狼搞怪日常" width="300"></td><td align="left">ID: 114796<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114796">喜羊羊与灰太狼搞怪日常</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/21 18:00<br>开售：2026/10/22 18:00<br>结束：2028/02/28 23:59</td><td align="left">卡池：1<br>卡牌：16<br>预约：225<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/82335b078f6957e19f94a62c0606ca69df84cac1.jpg" alt="喜羊羊与灰太狼搞怪日常" width="300"></td><td align="left">ID: 114796<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114796">喜羊羊与灰太狼搞怪日常</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/21 18:00<br>开售：2026/10/22 18:00<br>结束：2028/02/28 23:59</td><td align="left">卡池：1<br>卡牌：16<br>预约：225<br>已售：0</td></tr>
 </tbody>
 </table>
 
@@ -144,7 +154,7 @@ uv run scripts/update_collection_index.py --offline
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
 <tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f36feaf5a43e5ba1e9595e3011300e79878ea46f.png" alt="觅2" width="300"></td><td align="left">ID: 114825<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114825">觅2</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/20 18:00<br>开售：2026/10/24 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：146<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f36feaf5a43e5ba1e9595e3011300e79878ea46f.png" alt="觅2" width="300"></td><td align="left">ID: 114825<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114825">觅2</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/20 18:00<br>开售：2026/10/24 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：146<br>已售：0</td></tr>
 </tbody>
 </table>
 
@@ -170,21 +180,12 @@ uv run scripts/update_collection_index.py --offline
 </tbody>
 </table>
 
-### **2026/10/17**
-
-<table>
-<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
-<tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a1e6bf3800df90a80923cf72e735abbe3c024aae.png" alt="伽蓝KING-松月川收藏集" width="300"></td><td align="left">ID: 114315<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114315">伽蓝KING-松月川收藏集</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/17 22:00<br>开售：2026/10/18 22:00<br>结束：2029/10/18 00:00</td><td align="left">卡池：1<br>卡牌：9<br>预约：233<br>已售：0</td></tr>
-</tbody>
-</table>
-
 ---
 
 ## **全部收藏集索引**
 
 <details>
-<summary>展开全部 1775 个收藏集封面</summary>
+<summary>展开全部 1777 个收藏集封面</summary>
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
@@ -1827,7 +1828,7 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/13a4fc8372addf5a697636d6d230fc2831d9a58b.jpg" alt="法国国家足球队" width="300"></td><td align="left">ID: 113537<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113537">法国国家足球队</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/09 12:00<br>开售：2026/07/10 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：21<br>预约：475<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/176140a5980069a86aa849966b642ba86fc72b73.jpg" alt="比奇堡居民收藏集" width="300"></td><td align="left">ID: 113547<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113547">比奇堡居民收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/21 12:00<br>开售：2026/07/22 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：16<br>预约：288<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/d9528970a5ada99422f3cd29c1945df2b533d250.png" alt="2026明日方舟音律联觉" width="300"></td><td align="left">ID: 113550<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113550">2026明日方舟音律联觉</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/17 12:00<br>开售：2026/07/18 12:00<br>结束：永久</td><td align="left">卡池：2<br>卡牌：24<br>预约：9,807<br>已售：100</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/56c0fada5ba36ba7515a3900c5ab0fdd0878f66e.jpg" alt="洛天依·新像集-终冕" width="300"></td><td align="left">ID: 113552<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113552">洛天依·新像集-终冕</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/12 12:00<br>开售：2026/07/12 16:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：2,915<br>已售：24,574</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/56c0fada5ba36ba7515a3900c5ab0fdd0878f66e.jpg" alt="洛天依·新像集-终冕" width="300"></td><td align="left">ID: 113552<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113552">洛天依·新像集-终冕</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/12 12:00<br>开售：2026/07/12 16:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：2,915<br>已售：24,574</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/cd5f7c62f56f497c609a0e584f63ff9a9e687256.jpg" alt="言和·珍藏集" width="300"></td><td align="left">ID: 113562<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113562">言和·珍藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/11 12:00<br>开售：2026/07/11 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：1,502<br>已售：11,401</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/970e656d8603450148096b666e7adcfd6a7b8393.jpg" alt="争洛阳" width="300"></td><td align="left">ID: 113570<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113570">争洛阳</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/07/12 12:00<br>开售：2026/07/13 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：298<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/fee4655eb939cbe0913cc2ace159c35b538a15bf.png" alt="阿塔Official收藏集" width="300"></td><td align="left">ID: 113576<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=113576">阿塔Official收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/19 20:00<br>开售：2026/10/20 20:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：10<br>预约：289<br>已售：0</td></tr>
@@ -1956,14 +1957,16 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/97f8ad39e9ec926f4e07b2eb72449ae9f1044809.jpg" alt="机动战士Gundam GQuuuuuuX" width="300"></td><td align="left">ID: 114740<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114740">机动战士Gundam GQuuuuuuX</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/19 12:00<br>开售：2026/10/20 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：448<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/491993834536203685b1bb2e8e4f338cb9920985.jpg" alt="水果篮子" width="300"></td><td align="left">ID: 114746<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114746">水果篮子</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/22 18:00<br>开售：2026/10/23 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：12<br>预约：199<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/882607c617dfddca07a8389d4a87ff6da980ae84.jpg" alt="I’M VIPER" width="300"></td><td align="left">ID: 114763<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114763">I’M VIPER</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/19 19:00<br>开售：2026/10/20 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：307<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a47fcbbe6d91244b5df47b2d7b06967fb29c0b70.png" alt="奶油Kuriimu" width="300"></td><td align="left">ID: 114782<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114782">奶油Kuriimu</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/24 18:00<br>开售：2026/10/25 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：17<br>预约：400<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/cdc1816491e0274b29f9aa679e726abfeeb6aa3d.png" alt="AL2026LPL出征收藏集" width="300"></td><td align="left">ID: 114789<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114789">AL2026LPL出征收藏集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/22 18:00<br>开售：2026/10/23 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：22<br>预约：2,547<br>已售：100</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/82335b078f6957e19f94a62c0606ca69df84cac1.jpg" alt="喜羊羊与灰太狼搞怪日常" width="300"></td><td align="left">ID: 114796<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114796">喜羊羊与灰太狼搞怪日常</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/21 18:00<br>开售：2026/10/22 18:00<br>结束：2028/02/28 23:59</td><td align="left">卡池：1<br>卡牌：16<br>预约：225<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/82335b078f6957e19f94a62c0606ca69df84cac1.jpg" alt="喜羊羊与灰太狼搞怪日常" width="300"></td><td align="left">ID: 114796<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114796">喜羊羊与灰太狼搞怪日常</a><br>单抽价格：9.9 元<br>售卖状态：限时卡池<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/21 18:00<br>开售：2026/10/22 18:00<br>结束：2028/02/28 23:59</td><td align="left">卡池：1<br>卡牌：16<br>预约：225<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/c13a95bb3a4d13fb4ae39c820527242809a62f71.png" alt="TES2026LPL出征收藏集" width="300"></td><td align="left">ID: 114803<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114803">TES2026LPL出征收藏集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/22 14:00<br>开售：2026/10/23 14:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：26<br>预约：822<br>已售：100</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7d35137572e17a52ede48aa1ffacde73c5cb72ef.png" alt="ONCEAGAIN战队收藏集" width="300"></td><td align="left">ID: 114810<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114810">ONCEAGAIN战队收藏集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 20:00<br>开售：2026/10/24 20:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：989<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7d35137572e17a52ede48aa1ffacde73c5cb72ef.png" alt="ONCEAGAIN战队收藏集" width="300"></td><td align="left">ID: 114810<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114810">ONCEAGAIN战队收藏集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 20:00<br>开售：2026/10/24 20:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：989<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/78335b02a2cad168960b9680f928fac026757dd4.png" alt="BLG2026LPL出征收藏集" width="300"></td><td align="left">ID: 114815<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114815">BLG2026LPL出征收藏集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/22 16:00<br>开售：2026/10/23 16:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：26<br>预约：1,305<br>已售：100</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/98e3b41b22aa924d9a776c17c48998dfed4b3dad.png" alt="IG2026LPL出征收藏集" width="300"></td><td align="left">ID: 114820<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114820">IG2026LPL出征收藏集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/22 12:00<br>开售：2026/10/23 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：26<br>预约：9,410<br>已售：100</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f36feaf5a43e5ba1e9595e3011300e79878ea46f.png" alt="觅2" width="300"></td><td align="left">ID: 114825<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114825">觅2</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/20 18:00<br>开售：2026/10/24 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：146<br>已售：0</td></tr>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/45b8d3865709f1fd2bf2afa8137244e659081b21.jpg" alt="笔子Penz·时序集" width="300"></td><td align="left">ID: 114853<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114853">笔子Penz·时序集</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 19:00<br>开售：2026/10/24 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：272<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f36feaf5a43e5ba1e9595e3011300e79878ea46f.png" alt="觅2" width="300"></td><td align="left">ID: 114825<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114825">觅2</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/20 18:00<br>开售：2026/10/24 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：14<br>预约：146<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/c27f8bb29d6495c17b01a2733e5ff6b29804df40.png" alt="黑岛麻由_online" width="300"></td><td align="left">ID: 114845<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114845">黑岛麻由_online</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/24 19:00<br>开售：2026/10/25 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：227<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/45b8d3865709f1fd2bf2afa8137244e659081b21.jpg" alt="笔子Penz·时序集" width="300"></td><td align="left">ID: 114853<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=114853">笔子Penz·时序集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/10/23 19:00<br>开售：2026/10/24 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：8<br>预约：272<br>已售：0</td></tr>
 </tbody>
 </table>
 
