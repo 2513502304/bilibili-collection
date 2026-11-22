@@ -104,7 +104,16 @@ uv run scripts/update_collection_index.py --offline
 <!-- BILIBILI_COLLECTION_INDEX_START -->
 <!-- 下面内容由 scripts/update_collection_index.py 自动生成，请勿手动编辑此区块。 -->
 
-## **最近 7 天预约开始收藏集（截至北京时间 2026/11/21）**
+## **最近 7 天预约开始收藏集（截至北京时间 2026/11/22）**
+
+### **2026/11/22**
+
+<table>
+<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
+<tbody>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f2f1e3a3ec07f051c20921d4d6f9e179dc79aa18.png" alt="剑网3" width="300"></td><td align="left">ID: 115245<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115245">剑网3</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/22 19:00<br>开售：2026/11/23 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：29<br>预约：285<br>已售：0</td></tr>
+</tbody>
+</table>
 
 ### **2026/11/20**
 
@@ -135,21 +144,12 @@ uv run scripts/update_collection_index.py --offline
 </tbody>
 </table>
 
-### **2026/11/15**
-
-<table>
-<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
-<tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/363d1c5df3dcddcfc701fd48198591eee5325afa.jpg" alt="KPL王者梦之队收藏集" width="300"></td><td align="left">ID: 115223<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115223">KPL王者梦之队收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/15 19:00<br>开售：2026/11/16 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：13<br>预约：270<br>已售：0</td></tr>
-</tbody>
-</table>
-
 ---
 
 ## **全部收藏集索引**
 
 <details>
-<summary>展开全部 1831 个收藏集封面</summary>
+<summary>展开全部 1832 个收藏集封面</summary>
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
@@ -1983,6 +1983,7 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/a9d471e703b205611290d00b1818b47b87b1562c.png" alt="少女☆歌剧 Revue Starlight" width="300"></td><td align="left">ID: 115201<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115201">少女☆歌剧 Revue Starlight</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/13 18:00<br>开售：2026/11/15 18:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：29<br>预约：2,501<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7a1d3420b425fa6fe8109d96b04ac09563081fca.jpg" alt="流光绘卷绘师收藏集" width="300"></td><td align="left">ID: 115213<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115213">流光绘卷绘师收藏集</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/20 12:00<br>开售：2026/11/21 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：20<br>预约：529<br>已售：490</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/363d1c5df3dcddcfc701fd48198591eee5325afa.jpg" alt="KPL王者梦之队收藏集" width="300"></td><td align="left">ID: 115223<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115223">KPL王者梦之队收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/15 19:00<br>开售：2026/11/16 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：13<br>预约：270<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f2f1e3a3ec07f051c20921d4d6f9e179dc79aa18.png" alt="剑网3" width="300"></td><td align="left">ID: 115245<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115245">剑网3</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/22 19:00<br>开售：2026/11/23 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：29<br>预约：285<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7eb9f821f831b0bcb57dc24e8129117f5d85c547.jpg" alt="航海王收藏集" width="300"></td><td align="left">ID: 115260<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115260">航海王收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/18 12:00<br>开售：2026/11/20 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：13<br>预约：1,226<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/8d9a41f7a939aeb3ccc2b77a9bcccba86c2d21ed.png" alt="泽音Melody" width="300"></td><td align="left">ID: 115283<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115283">泽音Melody</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/20 19:00<br>开售：2026/11/21 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：1,746<br>已售：0</td></tr>
 </tbody>
