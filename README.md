@@ -104,7 +104,16 @@ uv run scripts/update_collection_index.py --offline
 <!-- BILIBILI_COLLECTION_INDEX_START -->
 <!-- 下面内容由 scripts/update_collection_index.py 自动生成，请勿手动编辑此区块。 -->
 
-## **最近 7 天预约开始收藏集（截至北京时间 2026/11/23）**
+## **最近 7 天预约开始收藏集（截至北京时间 2026/11/24）**
+
+### **2026/11/24**
+
+<table>
+<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
+<tbody>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/4548c7e706a2d8652e3abbd3695fc777b9b3465c.jpg" alt="新纯chun" width="300"></td><td align="left">ID: 115301<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115301">新纯chun</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/24 19:00<br>开售：2026/11/25 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：21<br>预约：242<br>已售：0</td></tr>
+</tbody>
+</table>
 
 ### **2026/11/22**
 
@@ -135,21 +144,12 @@ uv run scripts/update_collection_index.py --offline
 </tbody>
 </table>
 
-### **2026/11/17**
-
-<table>
-<thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
-<tbody>
-<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f631245b8acdbefc92cfba241df674eff602c181.png" alt="炽焰天穹收藏集" width="300"></td><td align="left">ID: 115182<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115182">炽焰天穹收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/17 12:00<br>开售：2026/11/18 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：24<br>预约：926<br>已售：100</td></tr>
-</tbody>
-</table>
-
 ---
 
 ## **全部收藏集索引**
 
 <details>
-<summary>展开全部 1832 个收藏集封面</summary>
+<summary>展开全部 1833 个收藏集封面</summary>
 
 <table>
 <thead><tr><th align="center" width="300">封面图</th><th align="left">描述</th><th align="left">时间</th><th align="left">统计</th></tr></thead>
@@ -1986,6 +1986,7 @@ uv run scripts/update_collection_index.py --offline
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/f2f1e3a3ec07f051c20921d4d6f9e179dc79aa18.png" alt="剑网3" width="300"></td><td align="left">ID: 115245<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115245">剑网3</a><br>单抽价格：9.9 元<br>售卖状态：新奖励<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/22 19:00<br>开售：2026/11/23 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：29<br>预约：285<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/7eb9f821f831b0bcb57dc24e8129117f5d85c547.jpg" alt="航海王收藏集" width="300"></td><td align="left">ID: 115260<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115260">航海王收藏集</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/18 12:00<br>开售：2026/11/20 12:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：13<br>预约：1,226<br>已售：0</td></tr>
 <tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/8d9a41f7a939aeb3ccc2b77a9bcccba86c2d21ed.png" alt="泽音Melody" width="300"></td><td align="left">ID: 115283<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115283">泽音Melody</a><br>单抽价格：9.9 元<br>售卖状态：在售中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/20 19:00<br>开售：2026/11/21 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：9<br>预约：1,746<br>已售：0</td></tr>
+<tr><td align="center" width="300"><img src="https://i0.hdslb.com/bfs/garb/4548c7e706a2d8652e3abbd3695fc777b9b3465c.jpg" alt="新纯chun" width="300"></td><td align="left">ID: 115301<br>名称：<a href="https://www.bilibili.com/h5/mall/digital-card/home?from_id=&amp;act_id=115301">新纯chun</a><br>单抽价格：9.9 元<br>售卖状态：预约中<br>奖励类型：任务奖励</td><td align="left">预约：2026/11/24 19:00<br>开售：2026/11/25 19:00<br>结束：永久</td><td align="left">卡池：1<br>卡牌：21<br>预约：242<br>已售：0</td></tr>
 </tbody>
 </table>
 
